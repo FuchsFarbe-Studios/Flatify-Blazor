@@ -3,7 +3,6 @@
 // FuchsFarbe Studios 2023
 // matsu
 // Modified: 19-12-2023
-using Flatify.Interfaces;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 
@@ -41,6 +40,12 @@ namespace Flatify
         /// </summary>
         [Parameter(CaptureUnmatchedValues = true)]
         public Dictionary<String, Object> UserAttributes { get; set; } = new Dictionary<String, Object>();
+
+        /// <inheritdoc />
+        public void FlatStateHasChanged()
+        {
+            StateHasChanged();
+        }
     }
 
 }

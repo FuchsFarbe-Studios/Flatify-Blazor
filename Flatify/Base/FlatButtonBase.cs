@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
-namespace Flatify.Base
+namespace Flatify
 {
     /// <summary>
-    ///     Base component for buttons.
+    /// Base component for buttons.
     /// </summary>
     public abstract class FlatButtonBase : FlatComponentBase
     {
@@ -88,7 +88,6 @@ namespace Flatify.Base
             if (!string.IsNullOrWhiteSpace(Link))
                 HtmlTag = "a";
         }
-
 
         protected String GetRel()
         {

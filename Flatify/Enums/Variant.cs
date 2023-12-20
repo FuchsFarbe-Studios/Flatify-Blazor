@@ -7,15 +7,27 @@ using System.ComponentModel;
 
 namespace Flatify
 {
+    /// <summary>
+    ///     Button and other container appearance modifiers.
+    /// </summary>
     public enum Variant
     {
-        [Description("text")]
+        /// <summary>
+        ///     Will appear like a link or text-button.
+        /// </summary>
+        [Description("link-button")]
         Text,
 
-        [Description("filled")]
-        Filled,
+        /// <summary>
+        ///     Creates a filled button based on accent color.
+        /// </summary>
+        [Description("style-accent")]
+        Accent,
 
-        [Description("outlined")]
-        Outlined
+        /// <summary>
+        ///     Generates a lightly outlined container or button.
+        /// </summary>
+        [Description("style-light")]
+        Light
     }
 }

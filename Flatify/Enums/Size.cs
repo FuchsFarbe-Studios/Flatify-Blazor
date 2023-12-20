@@ -9,13 +9,13 @@ namespace Flatify
 {
     public enum Size
     {
-        [Description("small")]
-        Small,
-
-        [Description("medium")]
-        Medium,
-
-        [Description("large")]
-        Large
+        [Description("size-xs")] ExtraSmall,
+        [Description("size-sm")] Small,
+        [Description("size-md")] Medium,
+        [Description("size-lg")] Large,
+        [Description("size-2x")] Huge,
+        [Description("size-3x")] Gigantic,
+        [Description("size-4x")] Heroic,
+        [Description("size-5x")] Titanic
     }
 }
