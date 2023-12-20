@@ -1,0 +1,22 @@
+:root {
+  --#{$CSS_VAR_PFX}badge-txt-color: var(--#{$CSS_VAR_PFX}txt-color-inverted);
+  --#{$CSS_VAR_PFX}badge-bg-color: var(--#{$CSS_VAR_PFX}color-accent-primary);
+}
+
+.badge {
+  user-select: none;
+  display: inline-block;
+  min-width: 1.35em;
+  min-height: 1.35em;
+  padding: 0.35em 0.65em;
+  text-decoration: none !important;
+  font-size: 0.64em;
+  font-weight: var(--#{$CSS_VAR_PFX}medium-font-weight);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  color: var(--#{$CSS_VAR_PFX}badge-txt-color);
+  background: var(--#{$CSS_VAR_PFX}badge-bg-color);
+  border-radius: calc(var(--#{$CSS_VAR_PFX}border-radius) * 0.5);
+}

@@ -1,0 +1,129 @@
+:root {
+  --#{$CSS_VAR_PFX}accordion-txt-color: var(--#{$CSS_VAR_PFX}text-color);
+  --#{$CSS_VAR_PFX}accordion-bg-color: var(--#{$CSS_VAR_PFX}bg-color);
+  --#{$CSS_VAR_PFX}accordion-border-color: var(--#{$CSS_VAR_PFX}bg-color-darker);
+
+  --#{$CSS_VAR_PFX}accordion-animation-show-duration: #{$ACCORDION_SHOW_ANIMATION_DURATION};
+  --#{$CSS_VAR_PFX}accordion-animation-hide-duration: #{$ACCORDION_HIDE_ANIMATION_DURATION};
+  --#{$CSS_VAR_PFX}accordion-animation-show: flatify-blow-in var(--#{$CSS_VAR_PFX}accordion-animation-show-duration)
+    0.1s ease-in-out;
+  --#{$CSS_VAR_PFX}accordion-animation-hide: flatify-blow-out var(--#{$CSS_VAR_PFX}accordion-animation-hide-duration)
+    ease-in-out;
+}
+
+.accordion {
+  --#{$CSS_VAR_PFX}local-txt-color: var(--#{$CSS_VAR_PFX}accordion-txt-color);
+  --#{$CSS_VAR_PFX}local-bg-color: var(--#{$CSS_VAR_PFX}accordion-bg-color);
+  --#{$CSS_VAR_PFX}local-border-color: var(--#{$CSS_VAR_PFX}accordion-border-color);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--#{$CSS_VAR_PFX}local-txt-color);
+  background: var(--#{$CSS_VAR_PFX}local-bg-color);
+
+  &.bordered {
+    border-radius: 1em;
+
+    .accordion-item {
+      overflow: hidden;
+      color: var(--#{$CSS_VAR_PFX}local-txt-color);
+      background: var(--#{$CSS_VAR_PFX}local-bg-color);
+      border: var(--#{$CSS_VAR_PFX}border-width) solid var(--#{$CSS_VAR_PFX}local-border-color);
+
+      &[class*="style-"] {
+        --#{$CSS_VAR_PFX}local-txt-color: var(--#{$CSS_VAR_PFX}accordion-txt-color);
+        --#{$CSS_VAR_PFX}local-bg-color: var(--#{$CSS_VAR_PFX}accordion-bg-color);
+        --#{$CSS_VAR_PFX}local-border-color: var(--#{$CSS_VAR_PFX}accordion-border-color);
+      }
+
+      &:last-child {
+        box-shadow: inset 0 -0.125em 0 var(--#{$CSS_VAR_PFX}local-border-color);
+      }
+
+      &:not(.active) .accordion-header,
+      &:not(:last-child) {
+        border-bottom: none;
+      }
+
+      &:first-child:not(:last-child) {
+        border-radius: var(--#{$CSS_VAR_PFX}border-radius) var(--#{$CSS_VAR_PFX}border-radius) 0 0;
+      }
+
+      &:last-child:not(:first-child) {
+        border-radius: 0 0 var(--#{$CSS_VAR_PFX}border-radius) var(--#{$CSS_VAR_PFX}border-radius);
+      }
+
+      // if there is just one accordion item round it
+      &:first-child:last-child {
+        border-radius: var(--#{$CSS_VAR_PFX}border-radius);
+      }
+    }
+  }
+}
+
+.accordion-item:not(.active) {
+  .accordion-collapse {
+    display: none;
+  }
+}
+
+.accordion-header {
+  font-size: 1em;
+  margin: 0;
+
+  &.active {
+    border-bottom: var(--#{$CSS_VAR_PFX}border-width) solid var(--#{$CSS_VAR_PFX}local-border-color);
+  }
+
+  .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: initial;
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+    color: currentColor;
+    background: transparent;
+    border: none;
+  }
+
+  .add-button {
+    font-size: 0.75em;
+    opacity: 0.75;
+  }
+}
+
+.accordion-collapse {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  will-change: height;
+  transition: height 0.2s ease-in-out;
+
+  &.show .accordion-body {
+    animation: var(--#{$CSS_VAR_PFX}accordion-animation-show) both;
+  }
+
+  &.accordion-will-be-hidden .accordion-body {
+    animation: var(--#{$CSS_VAR_PFX}accordion-animation-hide) forwards;
+  }
+}
+
+.accordion-body {
+  padding: 1em;
+}
+
+.fade-animation {
+  .show {
+    .accordion-body {
+      animation: flatify-fade-in var(--#{$CSS_VAR_PFX}accordion-animation-show-duration) 0.1s ease-in-out both;
+    }
+  }
+
+  .accordion-will-be-hidden {
+    .accordion-body {
+      animation: flatify-fade-out var(--#{$CSS_VAR_PFX}accordion-animation-hide-duration) ease-in-out both;
+    }
+  }
+}

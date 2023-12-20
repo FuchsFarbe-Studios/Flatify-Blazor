@@ -1,0 +1,35 @@
+:root {
+  --#{$CSS_VAR_PFX}backdrop-priority: #{$ZINDEX_BACKDROP};
+  --#{$CSS_VAR_PFX}backdrop-color: var(--#{$CSS_VAR_PFX}txt-color);
+  --#{$CSS_VAR_PFX}backdrop-opacity: 0.5;
+  --#{$CSS_VAR_PFX}backdrop-filter: none;
+
+  --#{$CSS_VAR_PFX}modal-backdrop-color: var(--#{$CSS_VAR_PFX}backdrop-color);
+}
+
+.backdrop-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--#{$CSS_VAR_PFX}backdrop-priority); // default z-index
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: var(--#{$CSS_VAR_PFX}backdrop-color);
+  opacity: var(--#{$CSS_VAR_PFX}backdrop-opacity);
+  backdrop-filter: var(--#{$CSS_VAR_PFX}backdrop-filter);
+
+  &.show {
+    display: block;
+    animation: flatify-backdrop-fade-in var(--#{$CSS_VAR_PFX}modal-animation-show-duration);
+  }
+
+  &.backdrop-will-be-removed {
+    animation: flatify-fade-out var(--#{$CSS_VAR_PFX}modal-animation-hide-duration) both;
+  }
+
+  &.modal-backdrop {
+    --#{$CSS_VAR_PFX}backdrop-priority: #{$ZINDEX_MODAL_BACKDROP};
+    --#{$CSS_VAR_PFX}backdrop-color: var(--#{$CSS_VAR_PFX}modal-backdrop-color);
+  }
+}

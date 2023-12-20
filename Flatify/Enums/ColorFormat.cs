@@ -3,7 +3,7 @@
 // FuchsFarbe Studios 2023
 // matsu
 // Modified: 19-12-2023
-namespace Flatify.Themes
+namespace Flatify.Enums
 {
     public enum ColorFormat
     {

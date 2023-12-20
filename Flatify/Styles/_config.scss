@@ -1,0 +1,332 @@
+// *** General: prefix, rtl and ltr
+// add a prefix before CSS variables to prevent unwanted conflicts.
+$CSS_VAR_PFX: flat- !default;
+$TYPO_PFX: -typo !default;
+$IS_LTR: true !default;
+$CENTERED_CONTAINERS: true !default;
+
+// do not change names, just values
+$RESPONSIVE_BREAKPOINTS: (
+  xs: 575.98px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+) !default;
+
+// *** Design: border width, radius, opacity, links
+$BORDER_WIDTH: max(2px, 0.18em) !default;
+$BORDER_RADIUS: 1em !default;
+
+// This list will be converted to helper classes.
+// .edge-[]
+$BORDER_RADIUS_LIST: (
+  sharp: 0em,
+  round-xs: 0.32em,
+  round-sm: 0.5em,
+  round-md: 0.75em,
+  round-lg: 1em,
+  circle: 50em,
+  oval: 50%,
+  triangle: 100% 50% 50% 100% / 75% 69% 69% 75%,
+) !default;
+
+// This list will be converted to helper classes.
+// .width-[]
+$WIDTH_LIST: (
+  0p: 0,
+  10p: 10%,
+  15p: 15%,
+  25p: 25%,
+  30p: 30%,
+  50p: 50%,
+  60p: 60%,
+  75p: 75%,
+  90p: 90%,
+  95p: 95%,
+  100p: 100%,
+) !default;
+
+// This list will be converted to helper classes.
+// .height-[]
+$HEIGHT_LIST: (
+  0p: 0,
+  10p: 10%,
+  15p: 15%,
+  25p: 25%,
+  30p: 30%,
+  50p: 50%,
+  60p: 60%,
+  75p: 75%,
+  90p: 90%,
+  95p: 95%,
+  100p: 100%,
+) !default;
+
+// This list will be converted to helper classes.
+// .opacity-[]
+$OPACITY_LIST: (0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100) !default;
+
+$HOVER_BRIGHTNESS: 95%;
+$BACKDROP_OPACITY: 0.35 !default;
+
+$LINK_DECORATION: none !default;
+$LINK_DECORATION_HOVER: underline 0.125em currentColor !default;
+$LINK_DECORATION_FOCUS: none !default;
+
+// z-index
+$ZINDEX_DROPDOWN: 1000 !default;
+$ZINDEX_STICKY: 1010 !default;
+$ZINDEX_FIXED: 1020 !default;
+$ZINDEX_FIREWORKS: 1025 !default;
+$ZINDEX_BACKDROP: 1030 !default;
+$ZINDEX_MODAL_BACKDROP: 1030 !default;
+$ZINDEX_MODAL: 1040 !default;
+$ZINDEX_POPOVER: 1060 !default;
+$ZINDEX_TOAST: 1100 !default;
+
+// *** Colors: accent color, background color, text color, heading color, palette
+$BG_COLOR: #ffffff !default;
+$BG_COLOR_2: #f1f4f7 !default;
+$BG_COLOR_3: #ced9e3 !default;
+$BG_COLOR_4: #809cb6 !default;
+
+$TXT_COLOR: #2e4051 !default;
+$TXT_COLOR_LIGHT: tint($TXT_COLOR, 35%) !default;
+$TXT_COLOR_DARK: shade($TXT_COLOR, 35%) !default;
+$TXT_COLOR_DARKER: shade($TXT_COLOR, 60%) !default;
+$TXT_COLOR_INVERTED: $BG_COLOR !default;
+
+$BLUE: #1cb0f6 !default;
+$BLUE_LIGHT: tint($BLUE, 40%) !default;
+$BLUE_DARK: shade($BLUE, 15%) !default;
+$BLUE_DARKER: shade($BLUE, 50%) !default;
+
+$GREEN: #58cc02 !default;
+$GREEN_LIGHT: tint($GREEN, 40%) !default;
+$GREEN_DARK: shade($GREEN, 15%) !default;
+$GREEN_DARKER: shade($GREEN, 50%) !default;
+
+$YELLOW: #ffde00 !default;
+$YELLOW_LIGHT: tint($YELLOW, 40%) !default;
+$YELLOW_DARK: shade($YELLOW, 15%) !default;
+$YELLOW_DARKER: shade($YELLOW, 35%) !default;
+
+$ORANGE: #ff9600 !default;
+$ORANGE_LIGHT: tint($ORANGE, 40%) !default;
+$ORANGE_DARK: shade($ORANGE, 15%) !default;
+$ORANGE_DARKER: shade($ORANGE, 50%) !default;
+
+$RED: #ff4b4b !default;
+$RED_LIGHT: tint($RED, 40%) !default;
+$RED_DARK: shade($RED, 15%) !default;
+$RED_DARKER: shade($RED, 50%) !default;
+
+$PINK: #ff86d0 !default;
+$PINK_LIGHT: tint($PINK, 40%) !default;
+$PINK_DARK: shade($PINK, 15%) !default;
+$PINK_DARKER: shade($PINK, 50%) !default;
+
+$PURPLE: #c164ff !default;
+$PURPLE_LIGHT: tint($PURPLE, 40%) !default;
+$PURPLE_DARK: shade($PURPLE, 15%) !default;
+$PURPLE_DARKER: shade($PURPLE, 50%) !default;
+
+$ACCENT_COLOR: $BLUE !default;
+$ACCENT_COLOR_LIGHT: $BLUE_LIGHT !default;
+$ACCENT_COLOR_DARK: $BLUE_DARK !default;
+$ACCENT_COLOR_DARKER: $BLUE_DARKER !default;
+
+$SUCCESS_COLOR: $GREEN !default;
+$SUCCESS_COLOR_LIGHT: $GREEN_LIGHT !default;
+$SUCCESS_COLOR_DARK: $GREEN_DARK !default;
+$SUCCESS_COLOR_DARKER: $GREEN_DARKER !default;
+
+$INFO_COLOR: $BLUE !default;
+$INFO_COLOR_LIGHT: $BLUE_LIGHT !default;
+$INFO_COLOR_DARK: $BLUE_DARK !default;
+$INFO_COLOR_DARKER: $BLUE_DARKER !default;
+
+$WARNING_COLOR: $ORANGE !default;
+$WARNING_COLOR_LIGHT: $ORANGE_LIGHT !default;
+$WARNING_COLOR_DARK: $ORANGE_DARK !default;
+$WARNING_COLOR_DARKER: $ORANGE_DARKER !default;
+
+$DANGER_COLOR: $RED !default;
+$DANGER_COLOR_LIGHT: $RED_LIGHT !default;
+$DANGER_COLOR_DARK: $RED_DARK !default;
+$DANGER_COLOR_DARKER: $RED_DARKER !default;
+
+$LIGHT_COLOR: $BG_COLOR_2 !default;
+$LIGHT_COLOR_LIGHT: $BG_COLOR !default;
+$LIGHT_COLOR_DARK: $BG_COLOR_3 !default;
+$LIGHT_COLOR_DARKER: $BG_COLOR_4 !default;
+
+$DARK_COLOR: $TXT_COLOR !default;
+$DARK_COLOR_LIGHT: $TXT_COLOR_LIGHT !default;
+$DARK_COLOR_DARK: $TXT_COLOR_DARK !default;
+$DARK_COLOR_DARKER: $TXT_COLOR_DARKER !default;
+
+$HEADING_COLOR: currentColor !default;
+
+$LINK_COLOR: $ACCENT_COLOR !default;
+$LINK_COLOR_HOVER: $ACCENT_COLOR_LIGHT !default;
+$LINK_COLOR_FOCUS: $ACCENT_COLOR_DARK !default;
+
+$TAP_HIGHLIGHT_COLOR: transparent !default;
+
+// Do not modify this palette directly
+$PALETTE: (
+  blue: (
+    primary: $BLUE,
+    light: $BLUE_LIGHT,
+    dark: $BLUE_DARK,
+    darker: $BLUE_DARKER,
+  ),
+  green: (
+    primary: $GREEN,
+    light: $GREEN_LIGHT,
+    dark: $GREEN_DARK,
+    darker: $GREEN_DARKER,
+  ),
+  yellow: (
+    primary: $YELLOW,
+    light: $YELLOW_LIGHT,
+    dark: $YELLOW_DARK,
+    darker: $YELLOW_DARKER,
+  ),
+  orange: (
+    primary: $ORANGE,
+    light: $ORANGE_LIGHT,
+    dark: $ORANGE_DARK,
+    darker: $ORANGE_DARKER,
+  ),
+  red: (
+    primary: $RED,
+    light: $RED_LIGHT,
+    dark: $RED_DARK,
+    darker: $RED_DARKER,
+  ),
+  pink: (
+    primary: $PINK,
+    light: $PINK_LIGHT,
+    dark: $PINK_DARK,
+    darker: $PINK_DARKER,
+  ),
+  purple: (
+    primary: $PURPLE,
+    light: $PURPLE_LIGHT,
+    dark: $PURPLE_DARK,
+    darker: $PURPLE_DARKER,
+  ),
+  accent: (
+    primary: $ACCENT_COLOR,
+    light: $ACCENT_COLOR_LIGHT,
+    dark: $ACCENT_COLOR_DARK,
+    darker: $ACCENT_COLOR_DARKER,
+  ),
+  success: (
+    primary: $SUCCESS_COLOR,
+    light: $SUCCESS_COLOR_LIGHT,
+    dark: $SUCCESS_COLOR_DARK,
+    darker: $SUCCESS_COLOR_DARKER,
+  ),
+  info: (
+    primary: $INFO_COLOR,
+    light: $INFO_COLOR_LIGHT,
+    dark: $INFO_COLOR_DARK,
+    darker: $INFO_COLOR_DARKER,
+  ),
+  warning: (
+    primary: $WARNING_COLOR,
+    light: $WARNING_COLOR_LIGHT,
+    dark: $WARNING_COLOR_DARK,
+    darker: $WARNING_COLOR_DARKER,
+  ),
+  danger: (
+    primary: $DANGER_COLOR,
+    light: $DANGER_COLOR_LIGHT,
+    dark: $DANGER_COLOR_DARK,
+    darker: $DANGER_COLOR_DARKER,
+  ),
+  light: (
+    primary: $LIGHT_COLOR,
+    light: $LIGHT_COLOR_LIGHT,
+    dark: $LIGHT_COLOR_DARK,
+    darker: $LIGHT_COLOR_DARKER,
+  ),
+  dark: (
+    primary: $DARK_COLOR,
+    light: $DARK_COLOR_LIGHT,
+    dark: $DARK_COLOR_DARK,
+    darker: $DARK_COLOR_DARKER,
+  ),
+);
+
+// *** Motion: animations, transitions
+$SUPPORT_SMOOTH_SCROLL: true !default;
+
+$SIMPLE_TRANSITION: 0.15s ease-in-out !default; // without specifying properties
+$LONG_TRANSITION: 1s ease-in-out !default; // without specifying properties
+$BOUNCING_TRANSITION: 0.35s cubic-bezier(0.59, -0.39, 0.36, 1.38) !default; // without specifying properties
+
+$ACCORDION_SHOW_ANIMATION_DURATION: 300ms !default;
+$ACCORDION_HIDE_ANIMATION_DURATION: 200ms !default;
+$ALERT_HIDE_ANIMATION_DURATION: 300ms !default;
+$ALERT_SHOW_ANIMATION_DURATION: 200ms !default;
+$DROPDOWN_SHOW_ANIMATION_DURATION: 300ms !default;
+$DROPDOWN_HIDE_ANIMATION_DURATION: 200ms !default;
+$MODAL_SHOW_ANIMATION_DURATION: 350ms !default;
+$MODAL_HIDE_ANIMATION_DURATION: 250ms !default;
+// submenu works with CSS, so it is not possible to set hide animation.
+$SUBMENU_SHOW_ANIMATION_DURATION: 350ms !default;
+$SUBMENU_SHOW_ANIMATION_DELAY: 200ms !default;
+$TAB_SHOW_ANIMATION_DURATION: 300ms !default;
+$TAB_HIDE_ANIMATION_DURATION: 200ms !default;
+$TOAST_SHOW_ANIMATION_DURATION: 300ms !default;
+$TOAST_HIDE_ANIMATION_DURATION: 200ms !default;
+
+// *** Typography: font size, font family, line height
+$MIN_FONT_SIZE: 85% !default; // must be percent
+$MAX_FONT_SIZE: 100% !default; // must be percent
+$PRIMARY_FONT_FAMILY: "Nunito", sans-serif !default;
+$HEADING_FONT_FAMILY: $PRIMARY_FONT_FAMILY !default;
+$CODE_FONT_FAMILY: "Fira Code", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+// This list will be converted to helper classes.
+// .size-[] | .text-[]
+$FONT_SIZE_LIST: (
+  xs: 0.75em,
+  sm: 0.9em,
+  md: 1em,
+  lg: 1.25em,
+  2x: 1.5em,
+  3x: 2.2em,
+  4x: 2.5em,
+  5x: 3.14em,
+) !default;
+
+$MEDIUM_FONT_WEIGHT: 600 !default;
+$BOLD_FONT_WEIGHT: 700 !default;
+$EXTRA_BOLD_FONT_WEIGHT: 900 !default;
+
+$BASE_LINE_HEIGHT: 1.5 !default;
+$SMALL_LINE_HEIGHT: 1.2 !default;
+$LARGE_LINE_HEIGHT: 1.8 !default;
+
+$BODY_TEXT_ALIGN: initial !default;
+
+$HEADING_MARGIN_BOTTOM: 0.5em !default;
+$HEADING_FONT_STYLE: normal !default;
+$HEADING_FONT_WEIGHT: bold !default;
+
+$PARAGRAPH_MARGIN_BOTTOM: 2em !default;
+
+// ICONS
+$ARROW_DOWN_ICON: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.805 12.633H8.2a.78.78 0 00-.552 1.332l7.803 7.802a.778.778 0 001.103 0l7.802-7.802a.78.78 0 00-.551-1.332z"></path></svg>') !default;
+$BLOCKQUOTE_ICON: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 100 125"> <path d="M24.503 12.412C13.732 12.412 5 21.144 5 31.916c0 10.771 8.732 19.502 19.503 19.502.232 0 6.279-.034 6.279-.034-.153 10.869-7.646 19.99-17.738 22.613a55.73 55.73 0 01-2.123.473A6.572 6.572 0 005 81.008c0 3.288 2.422 6.003 5.574 6.485.033.006.066.008.099.016.151.02.304.035.458.045.074.004.145.021.22.021 0 0 .789.025 1.05.004 1.165-.098 1.529-.246 2.281-.404 16.618-3.49 29.156-18.187 29.315-35.791h.01V31.829l-.005.004c-.045-10.733-8.755-19.421-19.499-19.421zM94.995 31.833c-.045-10.732-8.756-19.42-19.499-19.42-10.771 0-19.503 8.732-19.503 19.503s8.732 19.502 19.503 19.502c.231 0 6.278-.034 6.278-.034-.152 10.869-7.646 19.99-17.737 22.613-.68.176-2.103.471-2.123.473a6.572 6.572 0 00-5.921 6.538c0 3.288 2.422 6.003 5.574 6.485.032.006.065.008.099.016.15.02.303.035.457.045.074.004.145.021.221.021 0 0 .788.025 1.049.004 1.166-.098 1.53-.246 2.282-.404 16.618-3.49 29.156-18.187 29.315-35.791H95V31.829l-.005.004z"></path></svg>') !default;
+$CLOSE_ICON: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 16 16"><path d="M3.3 12.7c.2.2.4.3.7.3s.5-.1.7-.3L8 9.4l3.3 3.3c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4L9.4 8l3.3-3.3c.4-.4.4-1 0-1.4s-1-.4-1.4 0L8 6.6 4.7 3.3c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4L6.6 8l-3.3 3.3c-.4.4-.4 1 0 1.4z"></path></svg>') !default;
+$EYE_ICON: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24"><path d="M12,4c-4.326,0-8.227,3.005-9.938,7.654c-0.082,0.224-0.082,0.468,0,0.691C3.773,16.995,7.674,20,12,20  s8.227-3.005,9.938-7.654c0.082-0.224,0.082-0.468,0-0.691C20.227,7.005,16.326,4,12,4z M12,18c-3.374,0-6.451-2.343-7.928-6  C5.549,8.343,8.626,6,12,6s6.451,2.343,7.928,6C18.451,15.657,15.374,18,12,18z"/><path d="M12,8c-2.206,0-4,1.794-4,4s1.794,4,4,4s4-1.794,4-4S14.206,8,12,8z M12,14c-1.103,0-2-0.897-2-2s0.897-2,2-2s2,0.897,2,2  S13.103,14,12,14z"/></svg>') !default;
+$SEARCH_ICON: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" x="10" y="0" viewBox="-5 -5 110 110"><path d="M41.4 81.8c-10.8 0-20.9-4.2-28.6-11.8S1 52.2 1 41.4s4.2-20.9 11.8-28.6C20.5 5.2 30.6 1 41.4 1S62.3 5.2 70 12.8s11.8 17.8 11.8 28.6S77.6 62.3 70 70c-7.7 7.6-17.8 11.8-28.6 11.8zm0-68.4c-7.5 0-14.5 2.9-19.8 8.2s-8.2 12.3-8.2 19.8 2.9 14.5 8.2 19.8 12.3 8.2 19.8 8.2 14.5-2.9 19.8-8.2c5.3-5.3 8.2-12.3 8.2-19.8s-2.9-14.5-8.2-19.8-12.3-8.2-19.8-8.2z"></path><path d="M92.8 99c-1.6 0-3.2-.6-4.4-1.8l-25-25c-2.4-2.4-2.4-6.4 0-8.8 2.4-2.4 6.4-2.4 8.8 0l25 25c2.4 2.4 2.4 6.4 0 8.8-1.2 1.2-2.8 1.8-4.4 1.8z"></path></svg>') !default;
+$SELECT_ICON: url('data:image/svg+xml; utf8, <svg viewBox="50 -150 600 800" fill="%23CED3D6" xmlns="http://www.w3.org/2000/svg"><g><path d="m251.86 210.14c-7.6562-7.6523-20.062-7.6523-27.719 0-7.6523 7.6562-7.6523 20.062 0 27.719l112 112c7.6562 7.6523 20.062 7.6523 27.719 0l112-112c7.6523-7.6562 7.6523-20.062 0-27.719-7.6562-7.6523-20.062-7.6523-27.719 0l-98.195 98.195z" fill-rule="evenodd"/></g></svg>') !default;
