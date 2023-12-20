@@ -1,0 +1,9 @@
+@namespace Flatify
+@inherits FlatComponentBase
+
+<div @attributes="@UserAttributes" class="@Classname" style="@Style">
+	@if (ChildContent != null)
+	{
+		@ChildContent
+	}
+</div>

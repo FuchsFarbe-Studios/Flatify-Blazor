@@ -4,6 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>disable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>default</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -25,7 +26,6 @@
 
     <ItemGroup>
       <Folder Include="Icons\" />
-      <Folder Include="Utilities\" />
       <Folder Include="wwwroot\css\" />
     </ItemGroup>
 
