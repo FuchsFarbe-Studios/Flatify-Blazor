@@ -1,0 +1,110 @@
+@using Flatify.Themes
+@using System.Text
+
+@* Builds the FlatifyCSS theme *@
+@((MarkupString)BuildTheme())
+
+@code {
+
+    private const string PALETTE = "flat-palette";
+    private const string TYPOGRAPHY = "flat-typo";
+    private const string LAYOUT = "flat";
+    private FlatTheme _theme;
+    public FlatTheme Theme { get { return _theme; } set { _theme = value; } }
+
+    protected override void OnInitialized()
+    {
+        Theme ??= new FlatTheme
+                  {
+                      Palette = null,
+                      PaletteDark = null,
+                      Typography = new Typography()
+                  };
+    }
+
+    private string BuildTheme()
+    {
+        Theme ??= new FlatTheme();
+        var themeRoot = new StringBuilder();
+        themeRoot.AppendLine("<style>");
+        themeRoot.Append(":root");
+        themeRoot.AppendLine("{");
+        GenerateTheme(themeRoot);
+        themeRoot.AppendLine("}");
+        themeRoot.AppendLine("</style>");
+
+        return themeRoot.ToString();
+    }
+
+    private void GenerateTheme(StringBuilder theme)
+    {
+        GenerateThemeColors(theme);
+        GenerateThemeTypography(theme);
+        GenerateThemeLayout(theme);
+    }
+
+    private void GenerateThemeLayout(StringBuilder theme)
+    {
+
+    }
+
+    private void GenerateThemeTypography(StringBuilder theme)
+    {
+        theme.AppendLine($"--{TYPOGRAPHY}-max-font-size: " + Theme.Typography.MaxFontSize + ";");
+        theme.AppendLine($"--{TYPOGRAPHY}-min-font-size: " + Theme.Typography.MinFontSize + ";");
+
+        theme.AppendLine($"--{TYPOGRAPHY}-primary-font-family: " + Theme.Typography.PrimaryFontFamily + ";");
+        theme.AppendLine($"--{TYPOGRAPHY}-heading-font-family: " + Theme.Typography.HeadingFontFamily + ";");
+        theme.AppendLine($"--{TYPOGRAPHY}-code-font-family: " + Theme.Typography.CodeFontFamily + ";");
+
+        theme.AppendLine($"--{TYPOGRAPHY}-base-line-height: " + Theme.Typography.BaseLineHeight + ";");
+        theme.AppendLine($"--{TYPOGRAPHY}-small-line-height: " + Theme.Typography.SmallLineHeight + ";");
+        theme.AppendLine($"--{TYPOGRAPHY}-large-line-height: " + Theme.Typography.LargeLineHeight + ";");
+
+        theme.AppendLine($"--{TYPOGRAPHY}-md-font-weight: " + Theme.Typography.MediumFontWeight + ";");
+        theme.AppendLine($"--{TYPOGRAPHY}-bold-font-weight: " + Theme.Typography.BoldFontWeight + ";");
+        theme.AppendLine($"--{TYPOGRAPHY}-extra-font-weight: " + Theme.Typography.ExtraFontWeight + ";");
+
+        theme.AppendLine($"--{TYPOGRAPHY}-body-font-style: " + Theme.Typography.BodyTextAlign + ";");
+
+        theme.AppendLine($"--{TYPOGRAPHY}-heading-font-style: " + Theme.Typography.HeadingFontStyle + ";");
+        theme.AppendLine($"--{TYPOGRAPHY}-heading-font-weight: " + Theme.Typography.HeadingFontWeight + ";");
+        theme.AppendLine($"--{TYPOGRAPHY}-heading-mb: " + Theme.Typography.HeadingMarginBottom + ";");
+
+        theme.AppendLine($"--{TYPOGRAPHY}-paragraph-font-style: " + Theme.Typography.ParagraphMarginBottom + ";");
+
+        theme.AppendLine($"--{TYPOGRAPHY}-link-decoration: " + Theme.Typography.LinkDecoration + ";");
+        theme.AppendLine($"--{TYPOGRAPHY}-link-decoration-hover: " + Theme.Typography.LinkDecorationHover + ";");
+        theme.AppendLine($"--{TYPOGRAPHY}-link-decoration-focus: " + Theme.Typography.LinkDecorationFocus + ";");
+    }
+
+    private void GenerateThemeColors(StringBuilder theme)
+    {
+
+        @* // *** Colors *@
+        @* --#{$CSS_VAR_PFX}bg-color: #{$BG_COLOR}; *@
+        @* --#{$CSS_VAR_PFX}bg-color-dark: #{$BG_COLOR_2}; *@
+        @* --#{$CSS_VAR_PFX}bg-color-darker: #{$BG_COLOR_3}; *@
+        @* --#{$CSS_VAR_PFX}bg-color-darkest: #{$BG_COLOR_4}; *@
+        @* *@
+        @* --#{$CSS_VAR_PFX}txt-color: #{$TXT_COLOR}; *@
+        @* --#{$CSS_VAR_PFX}txt-color-light: #{$TXT_COLOR_LIGHT}; *@
+        @* --#{$CSS_VAR_PFX}txt-color-dark: #{$TXT_COLOR_DARK}; *@
+        @* --#{$CSS_VAR_PFX}txt-color-inverted: #{$TXT_COLOR_INVERTED}; *@
+        @* --#{$CSS_VAR_PFX}heading-color: #{$HEADING_COLOR}; *@
+        @* *@
+        @* @each $name, $colors in $PALETTE { *@
+        @*   // Palette include basic colors, states [danger, warning ...] and accent color with shade and tint *@
+        @*   @each $type, $color in $colors { *@
+        @*     --#{$CSS_VAR_PFX + 'color-' + $name + "-" + $type}: #{$color}; *@
+        @*   } *@
+        @* } *@
+        @* *@
+        @* --#{$CSS_VAR_PFX}tap-highlight-color: #{$TAP_HIGHLIGHT_COLOR}; *@
+        @* *@
+        @* --#{$CSS_VAR_PFX}link-color: #{$LINK_COLOR}; *@
+        @* --#{$CSS_VAR_PFX}link-color__hover: #{$LINK_COLOR_HOVER}; *@
+        @* --#{$CSS_VAR_PFX}link-color__focus: #{$LINK_COLOR_FOCUS}; *@
+
+    }
+}
