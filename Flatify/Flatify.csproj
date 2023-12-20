@@ -5,16 +5,14 @@
         <Nullable>disable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>default</LangVersion>
+        <Version>0.0.1</Version>
+        <Title>Flatify-Blazor</Title>
+        <Authors>FuchsFarbe Studios</Authors>
+        <Description>A razor component library designed for flat ui based off FlatifyCSS. This lightweight component library has everything you need to get started creating amazing looking Blazor applications.</Description>
+        <Copyright>FuchsFarbe Studios 2023</Copyright>
+        <Company>FuchsFarbe Studios</Company>
+        <Product>FlatifyCSS Blazor Component Library</Product>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Content Remove="compilerconfig.json" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="compilerconfig.json" />
-    </ItemGroup>
-
 
     <ItemGroup>
         <SupportedPlatform Include="browser" />
@@ -22,15 +20,6 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.25" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Icons\" />
-      <Folder Include="wwwroot\css\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Include="compilerconfig.json" />
     </ItemGroup>
 
 </Project>
