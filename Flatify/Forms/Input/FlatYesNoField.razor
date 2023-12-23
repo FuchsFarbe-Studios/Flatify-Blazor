@@ -1,0 +1,22 @@
+@namespace Flatify.Forms
+@inherits FlatInputBase<Boolean>
+
+@switch (YesNoType)
+{
+
+	case YesNoType.SelectList:
+		break;
+	case YesNoType.Checkbox:
+		<label class="checkbox-wrapper" @attributes="@UserAttributes">
+			<input type="checkbox" @bind="@CurrentValue" />
+			<span class="check"></span>
+			@Label
+		</label>
+		break;
+	case YesNoType.Radio:
+		break;
+	case YesNoType.Switch:
+		break;
+	default:
+		throw new ArgumentOutOfRangeException();
+}

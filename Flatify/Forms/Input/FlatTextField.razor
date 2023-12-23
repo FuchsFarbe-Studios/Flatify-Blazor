@@ -1,0 +1,5 @@
+@namespace Flatify.Forms
+@using Flatify.Utilities
+@inherits FlatInputBase<String>
+
+<input @bind="@CurrentValueAsString" type="@(InputMode.ToDescriptionString())" placeholder="@Placeholder" @attributes="@UserAttributes" maxlength="@MaxLength" required="@Required" readonly="@ReadOnly" disabled="@Disabled" />
