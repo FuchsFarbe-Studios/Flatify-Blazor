@@ -7,6 +7,9 @@ using System.ComponentModel;
 
 namespace Flatify
 {
+    /// <summary>
+    ///     Flexbox align-items property.
+    /// </summary>
     public enum AlignItems
     {
         [Description("baseline")]

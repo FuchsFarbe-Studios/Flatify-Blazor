@@ -8,6 +8,12 @@
 
 namespace Flatify.Utilities
 {
+    /// <summary>
+    ///     A class that helps build CSS classes for components.
+    /// </summary>
+    /// <remarks>
+    ///     All credit goes to Mudblazor for this class.
+    /// </remarks>
     public struct CssBuilder
     {
         private String stringBuffer;

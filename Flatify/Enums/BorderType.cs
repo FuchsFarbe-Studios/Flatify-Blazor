@@ -5,6 +5,9 @@
 // Modified: 23-12-2023
 namespace Flatify
 {
+    /// <summary>
+    ///     Border type for components.
+    /// </summary>
     public enum BorderType
     {
         None,

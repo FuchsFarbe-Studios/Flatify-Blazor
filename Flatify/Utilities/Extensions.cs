@@ -8,9 +8,20 @@ using System.Globalization;
 
 namespace Flatify.Utilities
 {
+    /// <summary>
+    ///     Generic extensions for application functionality.
+    /// </summary>
     public static class Extensions
     {
-
+        /// <summary>
+        ///     Turns the enum description into a string.
+        /// </summary>
+        /// <param name="value">
+        ///     The enum description to evaluate.
+        /// </param>
+        /// <returns>
+        ///     <see cref="string" />
+        /// </returns>
         public static String ToDescriptionString(this Enum value)
         {
             var field = value.GetType().GetField(value.ToString());

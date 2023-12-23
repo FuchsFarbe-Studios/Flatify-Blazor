@@ -7,6 +7,9 @@ using System.ComponentModel;
 
 namespace Flatify
 {
+    /// <summary>
+    ///     Describes the desired functionality for a drawer component.
+    /// </summary>
     public enum DrawerType
     {
         [Description("temporary")]
