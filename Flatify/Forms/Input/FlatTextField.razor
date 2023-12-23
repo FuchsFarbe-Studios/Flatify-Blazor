@@ -2,7 +2,7 @@
 @using Flatify.Utilities
 @inherits FlatInputBase<string>
 
-<div class="@Classname">
+<FlatField Class="@CssClass" Floating="@Floating" IsArea="@isArea" @attributes="@UserAttributes">
 	@if (!Floating)
 	{
 		<label name="@Id" class="@LabelClassname" for="@Id">@Label</label>
@@ -20,4 +20,4 @@
 	{
 		<label name="@Id" class="@LabelClassname" for="@Id">@Label</label>
 	}
-</div>
+</FlatField>

@@ -1,13 +1,13 @@
 // EpochWorlds
-// Width.cs
+// Height.cs
 // FuchsFarbe Studios 2023
 // matsu
-// Modified: 20-12-2023
+// Modified: 23-12-2023
 using System.ComponentModel;
 
 namespace Flatify
 {
-    public enum Width
+    public enum Height
     {
         [Description("10p")]
         ExtraSmall,
@@ -24,5 +24,4 @@ namespace Flatify
         [Description("100p")]
         ExtraLarge
     }
-
 }
