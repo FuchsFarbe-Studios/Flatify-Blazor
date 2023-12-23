@@ -3,8 +3,6 @@
 // FuchsFarbe Studios 2023
 // matsu
 // Modified: 19-12-2023
-using System.Text.RegularExpressions;
-
 namespace Flatify.Themes
 {
     /// <summary>
@@ -13,16 +11,16 @@ namespace Flatify.Themes
     /// <remarks>For now, values must be provided as hex values.</remarks>
     public class Palette
     {
-        private Dictionary<string, FlatColor> _colorsDict = new Dictionary<String, FlatColor>()
-                                                            {
-                                                                { "blue", new FlatColor("1cb0f6") },
-                                                                { "green", new FlatColor("58cc02") },
-                                                                { "yellow", new FlatColor("ffde00") },
-                                                                { "orange", new FlatColor("ff9600") },
-                                                                { "red", new FlatColor("ff4b4b") },
-                                                                { "purple", new FlatColor("c164ff") },
-                                                                { "pink", new FlatColor("ff86d0") },
-                                                            };
+        private Dictionary<String, FlatThemeColor> _colorsDict = new Dictionary<String, FlatThemeColor>
+                                                                 {
+                                                                     { "blue", new FlatThemeColor("1cb0f6") },
+                                                                     { "green", new FlatThemeColor("58cc02") },
+                                                                     { "yellow", new FlatThemeColor("ffde00") },
+                                                                     { "orange", new FlatThemeColor("ff9600") },
+                                                                     { "red", new FlatThemeColor("ff4b4b") },
+                                                                     { "purple", new FlatThemeColor("c164ff") },
+                                                                     { "pink", new FlatThemeColor("ff86d0") }
+                                                                 };
 
         public string Blue { get; set; } = "1cb0f6";
         public string Green { get; set; } = "58cc02";
@@ -36,39 +34,39 @@ namespace Flatify.Themes
         public string BgDarker { get; set; } = "ced9e3";
         public string BgDarkest { get; set; } = "809cb6";
         public string Text { get; set; } = "2e4051";
-        public string TextLight { get => new FlatColor(Text).TintHex(Text, 0.5); }
-        public string TextDark { get => new FlatColor(Text).ShadeHex(Text, 0.25); }
+        public String TextLight => new FlatThemeColor(Text).TintHex(Text, 0.5);
+        public String TextDark => new FlatThemeColor(Text).ShadeHex(Text, 0.25);
         public string TextInverted { get => Bg; }
         public string Heading { get => Text; }
         public string Link { get => ColorsDict["accent"].Value; }
         public string LinkHover { get => ColorsDict["accent"].Tint; }
         public string LinkFocus { get => ColorsDict["accent"].Shadier; }
         public string TapHighlight { get => "transparent"; }
-        public Dictionary<string, FlatColor> ColorsDict { get => AppendColorDict(); }
+        public Dictionary<String, FlatThemeColor> ColorsDict => AppendColorDict();
 
-        private Dictionary<string, FlatColor> AppendColorDict()
+        private Dictionary<String, FlatThemeColor> AppendColorDict()
         {
-            _colorsDict["blue"] = new FlatColor(Blue);
-            _colorsDict["green"] = new FlatColor(Green);
-            _colorsDict["yellow"] = new FlatColor(Yellow);
-            _colorsDict["orange"] = new FlatColor(Orange);
-            _colorsDict["red"] = new FlatColor(Red);
-            _colorsDict["purple"] = new FlatColor(Purple);
-            _colorsDict["pink"] = new FlatColor(Pink);
+            _colorsDict["blue"] = new FlatThemeColor(Blue);
+            _colorsDict["green"] = new FlatThemeColor(Green);
+            _colorsDict["yellow"] = new FlatThemeColor(Yellow);
+            _colorsDict["orange"] = new FlatThemeColor(Orange);
+            _colorsDict["red"] = new FlatThemeColor(Red);
+            _colorsDict["purple"] = new FlatThemeColor(Purple);
+            _colorsDict["pink"] = new FlatThemeColor(Pink);
 
-            var dict = new Dictionary<String, FlatColor>();
+            var dict = new Dictionary<String, FlatThemeColor>();
             foreach (var colorPair in _colorsDict)
             {
                 dict.Add(colorPair.Key, colorPair.Value);
             }
-            dict.Add("accent", new FlatColor(_colorsDict["blue"].Value));
-            dict.Add("success", new FlatColor(_colorsDict["green"].Value));
-            dict.Add("info", new FlatColor(_colorsDict["blue"].Tint));
-            dict.Add("warning", new FlatColor(_colorsDict["orange"].Tint));
-            dict.Add("danger", new FlatColor(_colorsDict["red"].Tint));
-            dict.Add("light", new FlatColor(Bg));
-            dict.Add("dark", new FlatColor(Text));
-            dict.Add("heading", new FlatColor(Heading));
+            dict.Add("accent", new FlatThemeColor(_colorsDict["blue"].Value));
+            dict.Add("success", new FlatThemeColor(_colorsDict["green"].Value));
+            dict.Add("info", new FlatThemeColor(_colorsDict["blue"].Tint));
+            dict.Add("warning", new FlatThemeColor(_colorsDict["orange"].Tint));
+            dict.Add("danger", new FlatThemeColor(_colorsDict["red"].Tint));
+            dict.Add("light", new FlatThemeColor(Bg));
+            dict.Add("dark", new FlatThemeColor(Text));
+            dict.Add("heading", new FlatThemeColor(Heading));
             return dict;
         }
 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Flatify
 {
-    public partial class Card
+    public partial class FlatCard
     {
         protected virtual String Classname => new CssBuilder()
                                               .AddClass("card")

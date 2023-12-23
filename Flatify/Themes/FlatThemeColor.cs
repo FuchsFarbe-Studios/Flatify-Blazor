@@ -7,20 +7,18 @@ using System.Text.RegularExpressions;
 
 namespace Flatify.Themes
 {
-    public class FlatColor
+    public class FlatThemeColor
     {
+        private Double _shadeStrength = 0.15;
+        private Double _tintStrength = 0.15;
         private string _value;
-        public string Value { get => _value; set => _value = value; }
-        public string Tint { get => TintHex(Value, 0.5); }
-        public string Shade { get => ShadeHex(Value, .25); }
-        public string Shadier { get => ShadeHex(Value, .5); }
-        public int R { get; set; } = 0;
-        public int G { get; set; } = 0;
-        public int B { get; set; } = 0;
-        public int A { get; set; } = 255;
 
-        public FlatColor(string hex)
+
+        public FlatThemeColor(String hex, Double lightenStrength = 0.15D, Double darkenStrength = 0.1D)
         {
+            TintStrength = lightenStrength;
+            ShadeStrength = darkenStrength;
+
             if (ValidateHex(hex))
                 Value = hex;
             else
@@ -31,7 +29,8 @@ namespace Flatify.Themes
             B = HexToRgb(Value)[2];
         }
 
-        public FlatColor(int r, int g, int b)
+
+        public FlatThemeColor(Int32 r, Int32 g, Int32 b)
         {
             Value = RgbToHex(new byte[] { (byte)r, (byte)g, (byte)b });
             R = r;
@@ -39,7 +38,7 @@ namespace Flatify.Themes
             B = b;
         }
 
-        public FlatColor(int r, int g, int b, int a = 255)
+        public FlatThemeColor(Int32 r, Int32 g, Int32 b, Int32 a = 255)
         {
             Value = RgbaToHex(new byte[] { (byte)r, (byte)g, (byte)b, (byte)a });
             R = r;
@@ -47,6 +46,43 @@ namespace Flatify.Themes
             B = b;
             A = a;
         }
+        public string Value { get => _value; set => _value = value; }
+        public String Tint => TintHex(Value, TintStrength);
+        public String Shade => ShadeHex(Value, ShadeStrength);
+        public String Shadier => ShadeHex(Value, ShadeStrength + ShadeStrength / 2);
+
+        public Double TintStrength
+        {
+            get
+            {
+                if (_tintStrength > 1)
+                    return 1;
+                if (_tintStrength < 0)
+                    return 0;
+
+                return _tintStrength;
+            }
+            protected set => _tintStrength = value;
+        }
+
+        public Double ShadeStrength
+        {
+            get
+            {
+                if (_shadeStrength > 1)
+                    return 1;
+                if (_shadeStrength < 0)
+                    return 0;
+
+                return _shadeStrength;
+            }
+            protected set => _shadeStrength = value;
+        }
+
+        public int R { get; set; } = 0;
+        public int G { get; set; } = 0;
+        public int B { get; set; } = 0;
+        public int A { get; set; } = 255;
 
         // Converts rbg to hex
         private string RgbToHex(byte[] rgb)
