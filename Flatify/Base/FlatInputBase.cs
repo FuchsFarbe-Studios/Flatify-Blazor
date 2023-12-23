@@ -5,6 +5,19 @@ namespace Flatify
 {
     public class FlatInputBase<T> : InputBase<T>
     {
+        protected string _id = Guid.NewGuid().ToString();
+        protected string _label = "";
+        protected string _placeholder = "";
+
+        /// <summary>
+        ///     Unique identifier for this input field.
+        /// </summary>
+        [Parameter] public string Id
+        {
+            get => _id;
+            set => _id = value;
+        }
+
         /// <summary>
         ///     If true, the input element will be required.
         /// </summary>
@@ -53,13 +66,26 @@ namespace Flatify
         /// <summary>
         ///     The short hint displayed in the input before the user enters a value.
         /// </summary>
-        [Parameter] public string Placeholder { get; set; }
+        [Parameter] public virtual string Placeholder
+        {
+            get => _placeholder;
+            set => _placeholder = value;
+        }
 
         /// <summary>
         ///     If string has value the label text will be displayed in the input, and scaled down at the top if the input has
         ///     value.
         /// </summary>
-        [Parameter] public string Label { get; set; }
+        [Parameter] public string Label
+        {
+            get => _label;
+            set => _label = value;
+        }
+
+        /// <summary>
+        ///     Determines the size of the control on screen.
+        /// </summary>
+        [Parameter] public Size Size { get; set; } = Size.Medium;
 
         /// <summary>
         ///     Hints at the type of data that might be entered by the user while editing the input
@@ -71,6 +97,7 @@ namespace Flatify
         {
             return Disabled || ParentDisabled;
         }
+
         protected bool GetReadOnlyState()
         {
             return ReadOnly || ParentReadOnly;

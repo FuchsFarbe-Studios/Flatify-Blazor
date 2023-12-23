@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Flatify
 {
-    public partial class ButtonGroup
+    public partial class FlatButtonGroup
     {
         protected virtual string Classname => new CssBuilder()
                                               .AddClass("button-group")

@@ -1,22 +1,50 @@
 @namespace Flatify.Forms
+@using Flatify.Utilities
 @inherits FlatInputBase<bool>
 
-@switch (YesNoType)
-{
+<label class="@Classname" @attributes="@UserAttributes">
+	@switch (YesNoType)
+	{
 
-	case YesNoType.SelectList:
-		break;
-	case YesNoType.Checkbox:
-		<label class="checkbox-wrapper" @attributes="@UserAttributes">
+		case YesNoType.SelectList:
+			<select name="@ItemName" id="@Id" class="@Size.ToDescriptionString()">
+				<option value="">Please select...</option>
+				<option value="@yesValue">
+					@if (UseYesNo)
+					{
+						<p>Yes</p>
+					}
+					else
+					{
+						<p>True</p>
+					}
+				</option>
+				<option value="@noValue">
+					@if (UseYesNo)
+					{
+						<p>No</p>
+					}
+					else
+					{
+						<p>False</p>
+					}
+				</option>
+			</select>
+			break;
+		case YesNoType.Checkbox:
 			<input type="checkbox" @bind="@CurrentValue" />
 			<span class="check"></span>
-			@Label
-		</label>
-		break;
-	case YesNoType.Radio:
-		break;
-	case YesNoType.Switch:
-		break;
-	default:
-		throw new ArgumentOutOfRangeException();
-}
+			break;
+		case YesNoType.Radio:
+			<input type="radio" name="@ItemName" />
+			<span class="check"></span>
+			break;
+		case YesNoType.Switch:
+			<input type="checkbox" @bind="@CurrentValue" role="switch" />
+			<span class="check"></span>
+			break;
+		default:
+			goto case YesNoType.Checkbox;
+	}
+	@Label
+</label>

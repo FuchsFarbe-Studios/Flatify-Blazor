@@ -1,0 +1,52 @@
+@namespace Flatify
+@using Flatify.Utilities
+@inherits FlatComponentBase
+
+@switch (Typo)
+{
+
+	case Typo.Default:
+		<p>@ChildContent</p>
+		break;
+	case Typo.Heading1:
+		<h1>@ChildContent</h1>
+		break;
+	case Typo.Heading2:
+		break;
+	case Typo.Heading3:
+		break;
+	case Typo.Heading4:
+		break;
+	case Typo.Heading5:
+		break;
+	case Typo.Heading6:
+		break;
+	case Typo.Subtitle1:
+		break;
+	case Typo.Subtitle2:
+		break;
+	case Typo.Body1:
+		break;
+	case Typo.Body2:
+		break;
+	case Typo.Button:
+		break;
+	case Typo.Caption:
+		break;
+	case Typo.Overline:
+		break;
+	default:
+		goto case Typo.Default;
+}
+
+@code {
+	protected string Classname => new CssBuilder()
+	                              .AddClass($"style-{Color.ToDescriptionString()}", Color != FlatColor.Inherit && Color != FlatColor.Default && Color != FlatColor.Transparent)
+	                              .AddClass(Size.ToDescriptionString(), Size != TextSize.Medium)
+	                              .Build();
+
+	[Parameter] public RenderFragment ChildContent { get; set; }
+	[Parameter] public Typo Typo { get; set; } = Typo.Body1;
+	[Parameter] public FlatColor Color { get; set; } = FlatColor.Inherit;
+	[Parameter] public TextSize Size { get; set; } = TextSize.Medium;
+}

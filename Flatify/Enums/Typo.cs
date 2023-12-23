@@ -10,45 +10,45 @@ namespace Flatify
     public enum Typo
     {
         [Description("inherit")]
-        inherit,
+        Default,
 
         [Description("h1")]
-        h1,
+        Heading1,
 
         [Description("h2")]
-        h2,
+        Heading2,
 
         [Description("h3")]
-        h3,
+        Heading3,
 
         [Description("h4")]
-        h4,
+        Heading4,
 
         [Description("h5")]
-        h5,
+        Heading5,
 
         [Description("h6")]
-        h6,
+        Heading6,
 
         [Description("subtitle1")]
-        subtitle1,
+        Subtitle1,
 
         [Description("subtitle2")]
-        subtitle2,
+        Subtitle2,
 
         [Description("body1")]
-        body1,
+        Body1,
 
         [Description("body2")]
-        body2,
+        Body2,
 
         [Description("button")]
-        button,
+        Button,
 
         [Description("caption")]
-        caption,
+        Caption,
 
         [Description("overline")]
-        overline
+        Overline
     }
 }

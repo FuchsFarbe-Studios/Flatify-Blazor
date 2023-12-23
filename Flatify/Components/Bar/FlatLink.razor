@@ -1,0 +1,7 @@
+@namespace Flatify
+@using Microsoft.AspNetCore.Components.Routing
+@inherits FlatComponentBase
+
+<li class="@Classname" @attributes="@UserAttributes">
+	<NavLink href="@Link" Match="@MatchMode">@ChildContent</NavLink>
+</li>

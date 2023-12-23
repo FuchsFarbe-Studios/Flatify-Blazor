@@ -1,0 +1,16 @@
+@namespace Flatify
+@using Flatify.Utilities
+@inherits FlatComponentBase
+
+<hr class="@Classname" @attributes="@UserAttributes" style="@Style" />
+
+@code {
+	protected string Classname => new CssBuilder()
+	                              .AddClass($"{BreakType.ToDescriptionString()}", BreakType != BreakType.Default)
+	                              .AddClass($"style-{Color.ToDescriptionString()}", Color != FlatColor.Default && Color != FlatColor.Transparent && Color != FlatColor.Inherit)
+	                              .AddClass(Class)
+	                              .Build();
+
+	[Parameter] public FlatColor Color { get; set; } = FlatColor.Default;
+	[Parameter] public BreakType BreakType { get; set; } = BreakType.Default;
+}

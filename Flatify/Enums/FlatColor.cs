@@ -10,6 +10,8 @@ namespace Flatify
 
     public enum FlatColor
     {
+        Default,
+
         [Description("blue")]
         Blue,
 

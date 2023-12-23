@@ -1,0 +1,17 @@
+@namespace Flatify
+@inherits FlatComponentBase
+
+<nav class="@Classname" @attributes="@UserAttributes" style="@Style">
+	@if (UseBranding)
+	{
+		<a class="navbar-logo" href="@BrandLink">
+			<img src="@Logo" alt="logo" />
+		</a>
+	}
+	<ul class="links">
+		@LeftBar
+	</ul>
+	<div class="search-bar push-right">
+		@RightBar
+	</div>
+</nav>
