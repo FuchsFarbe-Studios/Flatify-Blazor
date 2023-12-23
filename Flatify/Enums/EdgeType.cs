@@ -12,6 +12,11 @@ namespace Flatify
     /// </summary>
     public enum EdgeType
     {
+        /// <summary>
+        ///     Usually does nothing, used for defaulting.
+        /// </summary>
+        None,
+
         /// <summary> Creates a sharp edge. </summary>
         [Description("sharp")]
         Sharp,
@@ -19,8 +24,38 @@ namespace Flatify
         /// <summary>
         ///     Slightly rounds the edges of the border.
         /// </summary>
+        [Description("round-xs")]
+        RoundXs,
+
+        /// <summary>
+        /// Slightly rounds the edges of the border.
+        /// </summary>
         [Description("round-sm")]
-        Round,
+        RoundSm,
+
+        /// <summary>
+        ///     Moderately rounds the edges of the border.
+        /// </summary>
+        [Description("round-md")]
+        RoundMd,
+
+        /// <summary>
+        ///     Intensely rounds the edges of the border.
+        /// </summary>
+        [Description("round-lg")]
+        RoundLg,
+
+        /// <summary>
+        ///     Creates a triangle edge.
+        /// </summary>
+        [Description("triangle")]
+        Triangle,
+
+        /// <summary>
+        ///     Rounds the edges of the border in an oval.
+        /// </summary>
+        [Description("oval")]
+        Oval,
 
         /// <summary>
         ///     Rounds the edges of the border near-completely.

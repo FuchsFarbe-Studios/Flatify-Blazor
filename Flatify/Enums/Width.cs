@@ -9,25 +9,19 @@ namespace Flatify
 {
     public enum Width
     {
-        [Description("xs")]
-        xs,
+        [Description("10p")]
+        ExtraSmall,
 
-        [Description("sm")]
-        sm,
+        [Description("25p")]
+        Small,
 
-        [Description("md")]
-        md,
+        [Description("50p")]
+        Medium,
 
-        [Description("lg")]
-        lg,
+        [Description("75p")]
+        Large,
 
-        [Description("xl")]
-        xl,
-
-        [Description("xxl")]
-        xxl,
-
-        [Description("false")]
-        False
+        [Description("100p")]
+        ExtraLarge
     }
 }

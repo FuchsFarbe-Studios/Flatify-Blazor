@@ -6,7 +6,7 @@ namespace Flatify
     public partial class FlatButton
     {
         [Parameter] public BorderType Border { get; set; } = BorderType.None;
-        [Parameter] public EdgeType Edge { get; set; } = EdgeType.Round;
+        [Parameter] public EdgeType Edge { get; set; } = EdgeType.RoundSm;
         [Parameter] public FlatColor Color { get; set; } = FlatColor.Blue;
         [Parameter] public ButtonType Type { get; set; } = ButtonType.Button;
         [Parameter] public Variant Variant { get; set; } = Variant.Light;

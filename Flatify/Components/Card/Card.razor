@@ -1,0 +1,40 @@
+@namespace Flatify
+@inherits FlatComponentBase
+
+<article @attributes="@UserAttributes" class="@Classname" style="@Stylename">
+	<header class="card-header">
+
+		@if (Badges != null)
+		{
+			<div class="card-badges">
+				@(Badges)
+			</div>
+		}
+
+		@if (!string.IsNullOrWhiteSpace(Img))
+		{
+			<img class="card-image" src="@Img" alt="@Alt" />
+		}
+		<h2 class="card-title">@HeadingText</h2>
+	</header>
+
+	<div class="card-body">
+		@(CardContent)
+	</div>
+
+	<footer class="card-footer">
+		@if (CardButtons != null)
+		{
+			<div class="button-group">
+				@CardButtons
+			</div>
+		}
+
+		@if (CardLinks != null)
+		{
+			<div class="push-right">
+				@CardLinks
+			</div>
+		}
+	</footer>
+</article>
