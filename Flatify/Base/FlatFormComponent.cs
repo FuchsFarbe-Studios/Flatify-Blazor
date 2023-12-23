@@ -7,12 +7,12 @@ namespace Flatify
 {
     public abstract class FlatFormComponent<T> : FlatComponentBase, IFormComponent, IDisposable
     {
-        private Boolean _error;
-        private Boolean _hasErrors;
-        private Boolean _required;
-        private Boolean _touched;
-        private Object _validation;
-        private List<String> _validationErrors;
+        private bool _error;
+        private bool _hasErrors;
+        private bool _required;
+        private bool _touched;
+        private object _validation;
+        private List<string> _validationErrors;
 
         /// <inheritdoc />
         public void Dispose()
@@ -21,26 +21,26 @@ namespace Flatify
         }
 
         /// <inheritdoc />
-        public Boolean Required { get => _required; set => _required = value; }
+        public bool Required { get => _required; set => _required = value; }
 
         /// <inheritdoc />
-        public Boolean Error { get => _error; set => _error = value; }
+        public bool Error { get => _error; set => _error = value; }
 
         /// <inheritdoc />
-        public Boolean HasErrors => _hasErrors;
+        public bool HasErrors => _hasErrors;
 
         /// <summary>
         ///     This manages the state of having been "touched" by the user. A form control always starts out untouched but becomes
         ///     touched when the user performed input or the blur event was raised. The touched state is only relevant for inputs
         ///     that have no value (i.e. empty text fields). Being untouched will suppress RequiredError
         /// </summary>
-        public Boolean Touched { get; protected set; }
+        public bool Touched { get; protected set; }
 
         /// <inheritdoc />
-        public Object Validation { get => _validation; set => _validation = value; }
+        public object Validation { get => _validation; set => _validation = value; }
 
         /// <inheritdoc />
-        public List<String> ValidationErrors { get => _validationErrors; set => _validationErrors = value; }
+        public List<string> ValidationErrors { get => _validationErrors; set => _validationErrors = value; }
 
         /// <inheritdoc />
         public Task Validate()

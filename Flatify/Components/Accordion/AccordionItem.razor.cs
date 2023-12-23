@@ -5,13 +5,13 @@ namespace Flatify
 {
     public partial class AccordionItem
     {
-        private Boolean isContentVisible = false;
-        protected String Classname => new CssBuilder("accordion-collapse")
+        private bool isContentVisible = false;
+        protected string Classname => new CssBuilder("accordion-collapse")
                                       .AddClass("show", isContentVisible)
                                       .Build();
         [Parameter] public RenderFragment Content { get; set; }
         [Parameter] public RenderFragment TitleContent { get; set; }
-        [Parameter] public String ID { get; set; } = Guid.NewGuid().ToString();
+        [Parameter] public string ID { get; set; } = Guid.NewGuid().ToString();
         public void ToggleContentVisibility()
         {
             isContentVisible = !isContentVisible;

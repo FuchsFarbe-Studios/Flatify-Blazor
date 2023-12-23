@@ -13,15 +13,15 @@ namespace Flatify
         /// <summary>
         ///     Set if the form is valid.
         /// </summary>
-        public Boolean IsValid { get; }
+        public bool IsValid { get; }
 
         /// <summary>
         ///     A list of the form errors.
         /// </summary>
-        public String[] Errors { get; }
+        public string[] Errors { get; }
 
         /// <summary> The form's model. </summary>
-        public Object Model { get; set; }
+        public object Model { get; set; }
 
         /// <summary>
         ///     Triggers a field change event for a form component.
@@ -29,8 +29,10 @@ namespace Flatify
         /// <param name="formControl">
         ///     The form control that changed.
         /// </param>
-        /// <param name="newValue"> New value of the field. </param>
-        public void FieldChanged(IFormComponent formControl, Object newValue);
+        /// <param name="newValue">
+        ///     New value of the field.
+        /// </param>
+        public void FieldChanged(IFormComponent formControl, object newValue);
 
         /// <summary>
         ///     Adds a form component to the form.

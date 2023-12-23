@@ -16,14 +16,14 @@ namespace Flatify.Utilities
     /// </remarks>
     public struct CssBuilder
     {
-        private String stringBuffer;
+        private string stringBuffer;
 
         /// <summary>
         ///     Creates a CssBuilder used to define conditional CSS classes used in a component. Call Build() to return the
         ///     completed CSS Classes as a string.
         /// </summary>
         /// <param name="value"> </param>
-        public static CssBuilder Default(String value)
+        public static CssBuilder Default(string value)
         {
             return new CssBuilder(value);
         }
@@ -42,7 +42,7 @@ namespace Flatify.Utilities
         ///     completed CSS Classes as a string.
         /// </summary>
         /// <param name="value"> </param>
-        public CssBuilder(String value)
+        public CssBuilder(string value)
         {
             stringBuffer = value;
         }
@@ -52,7 +52,7 @@ namespace Flatify.Utilities
         /// </summary>
         /// <param name="value"> </param>
         /// <returns> CssBuilder </returns>
-        public CssBuilder AddValue(String value)
+        public CssBuilder AddValue(string value)
         {
             stringBuffer += value;
             return this;
@@ -63,7 +63,7 @@ namespace Flatify.Utilities
         /// </summary>
         /// <param name="value"> CSS Class to add </param>
         /// <returns> CssBuilder </returns>
-        public CssBuilder AddClass(String value)
+        public CssBuilder AddClass(string value)
         {
             return AddValue(" " + value);
         }
@@ -78,7 +78,7 @@ namespace Flatify.Utilities
         ///     Condition in which the CSS Class is added.
         /// </param>
         /// <returns> CssBuilder </returns>
-        public CssBuilder AddClass(String value, Boolean when = true)
+        public CssBuilder AddClass(string value, bool when = true)
         {
             return when
                        ? AddClass(value)
@@ -95,7 +95,7 @@ namespace Flatify.Utilities
         ///     Nullable condition in which the CSS Class is added.
         /// </param>
         /// <returns> CssBuilder </returns>
-        public CssBuilder AddClass(String value, Boolean? when = true)
+        public CssBuilder AddClass(string value, bool? when = true)
         {
             return when == true
                        ? AddClass(value)
@@ -112,7 +112,7 @@ namespace Flatify.Utilities
         ///     Condition in which the CSS Class is added.
         /// </param>
         /// <returns> CssBuilder </returns>
-        public CssBuilder AddClass(String value, Func<Boolean> when = null)
+        public CssBuilder AddClass(string value, Func<bool> when = null)
         {
             return AddClass(value, when != null && when());
         }
@@ -127,7 +127,7 @@ namespace Flatify.Utilities
         ///     Condition in which the CSS Class is added.
         /// </param>
         /// <returns> CssBuilder </returns>
-        public CssBuilder AddClass(Func<String> value, Boolean when = true)
+        public CssBuilder AddClass(Func<string> value, bool when = true)
         {
             return when
                        ? AddClass(value())
@@ -144,7 +144,7 @@ namespace Flatify.Utilities
         ///     Condition in which the CSS Class is added.
         /// </param>
         /// <returns> CssBuilder </returns>
-        public CssBuilder AddClass(Func<String> value, Func<Boolean> when = null)
+        public CssBuilder AddClass(Func<string> value, Func<bool> when = null)
         {
             return AddClass(value, when != null && when());
         }
@@ -159,7 +159,7 @@ namespace Flatify.Utilities
         ///     Condition in which the CSS Class is added.
         /// </param>
         /// <returns> CssBuilder </returns>
-        public CssBuilder AddClass(CssBuilder builder, Boolean when = true)
+        public CssBuilder AddClass(CssBuilder builder, bool when = true)
         {
             return when
                        ? AddClass(builder.Build())
@@ -176,7 +176,7 @@ namespace Flatify.Utilities
         ///     Condition in which the CSS Class is added.
         /// </param>
         /// <returns> CssBuilder </returns>
-        public CssBuilder AddClass(CssBuilder builder, Func<Boolean> when = null)
+        public CssBuilder AddClass(CssBuilder builder, Func<bool> when = null)
         {
             return AddClass(builder, when != null && when());
         }
@@ -189,7 +189,7 @@ namespace Flatify.Utilities
         ///     Additional Attribute splat parameters
         /// </param>
         /// <returns> CssBuilder </returns>
-        public CssBuilder AddClassFromAttributes(IReadOnlyDictionary<String, Object> additionalAttributes)
+        public CssBuilder AddClassFromAttributes(IReadOnlyDictionary<string, object> additionalAttributes)
         {
             return additionalAttributes == null
                        ? this
@@ -202,7 +202,7 @@ namespace Flatify.Utilities
         ///     Finalize the completed CSS Classes as a string.
         /// </summary>
         /// <returns> string </returns>
-        public String Build()
+        public string Build()
         {
             // String buffer finalization code
             return stringBuffer != null
@@ -211,7 +211,7 @@ namespace Flatify.Utilities
         }
 
         // ToString should only and always call Build to finalize the rendered string.
-        public override String ToString()
+        public override string ToString()
         {
             return Build();
         }

@@ -10,14 +10,14 @@ namespace Flatify
     public abstract class FlatItemsControlBase<TChildComponent> : FlatComponentBase where TChildComponent : FlatComponentBase
     {
 
-        internal Boolean _moveNext = true;
-        private Int32 _selectedIndexField = -1;
+        internal bool _moveNext = true;
+        private int _selectedIndexField = -1;
 
         /// <summary> Collection of T </summary>
         [Parameter] public RenderFragment ChildContent { get; set; }
 
         /// <summary> Selected Item's index </summary>
-        [Parameter] public Int32 SelectedIndex
+        [Parameter] public int SelectedIndex
         {
             get => _selectedIndexField;
             set
@@ -36,7 +36,7 @@ namespace Flatify
             }
         }
 
-        [Parameter] public EventCallback<Int32> SelectedIndexChanged { get; set; }
+        [Parameter] public EventCallback<int> SelectedIndexChanged { get; set; }
 
         /// <summary>
         ///     Gets the Selected TChildComponent
@@ -56,7 +56,7 @@ namespace Flatify
                                                         : null;
 
         /// <inheritdoc />
-        protected override Task OnAfterRenderAsync(Boolean firstRender)
+        protected override Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
                 if (Items.Count > 0 && SelectedIndex < 0)
@@ -90,7 +90,7 @@ namespace Flatify
         /// <summary>
         ///     Move to Item at desired index
         /// </summary>
-        public void MoveTo(Int32 index)
+        public void MoveTo(int index)
         {
             if (SelectedIndex != index)
             {

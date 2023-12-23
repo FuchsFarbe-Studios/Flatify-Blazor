@@ -23,7 +23,7 @@ namespace Flatify
         /// <summary>
         ///     Gets the Selected Item from ItemsSource, or Selected TChildComponent, when it's null
         /// </summary>
-        public Object SelectedItem => ItemsSource == null
+        public object SelectedItem => ItemsSource == null
                                           ? Items[SelectedIndex]
                                           : ItemsSource.ElementAtOrDefault(SelectedIndex);
     }

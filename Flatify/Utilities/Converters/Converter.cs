@@ -20,17 +20,17 @@ namespace Flatify.Utilities
         /// </summary>
         public CultureInfo Culture { get; set; } = Converters.DefaultCulture;
 
-        public Action<String> OnError { get; set; }
+        public Action<string> OnError { get; set; }
 
         [MemberNotNullWhen(true, nameof(SetErrorMessage))]
-        public Boolean SetError { get; set; }
+        public bool SetError { get; set; }
 
         [MemberNotNullWhen(true, nameof(GetErrorMessage))]
-        public Boolean GetError { get; set; }
+        public bool GetError { get; set; }
 
-        public String SetErrorMessage { get; set; }
+        public string SetErrorMessage { get; set; }
 
-        public String GetErrorMessage { get; set; }
+        public string GetErrorMessage { get; set; }
 
         public U Set(T value)
         {
@@ -70,14 +70,14 @@ namespace Flatify.Utilities
             return default;
         }
 
-        protected void UpdateSetError(String msg)
+        protected void UpdateSetError(string msg)
         {
             SetError = true;
             SetErrorMessage = msg;
             OnError?.Invoke(msg);
         }
 
-        protected void UpdateGetError(String msg)
+        protected void UpdateGetError(string msg)
         {
             GetError = true;
             GetErrorMessage = msg;
@@ -88,11 +88,11 @@ namespace Flatify.Utilities
     /// <summary>
     ///     Converter from T to string Set converts to string Get converts from string
     /// </summary>
-    public class Converter<T> : Converter<T, String>
+    public class Converter<T> : Converter<T, string>
     {
         /// <summary>
         ///     Custom Format to be applied on bidirectional way.
         /// </summary>
-        public String? Format { get; set; } = null;
+        public string? Format { get; set; } = null;
     }
 }

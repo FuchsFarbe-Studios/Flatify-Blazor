@@ -5,7 +5,7 @@ namespace Flatify
 {
     public partial class FlatContainer
     {
-        protected String Classname => new CssBuilder($"container-{MaxWidth.ToDescriptionString()}")
+        protected string Classname => new CssBuilder($"container-{MaxWidth.ToDescriptionString()}")
                                       .AddClass(Class)
                                       .Build();
         /// <summary>

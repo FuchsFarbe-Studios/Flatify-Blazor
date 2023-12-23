@@ -12,7 +12,7 @@ namespace Flatify
         /// <summary>
         ///     The HTML element that will be rendered in the root by the component
         /// </summary>
-        [Parameter] public String HtmlTag { get; set; } = "span";
+        [Parameter] public string HtmlTag { get; set; } = "span";
 
         /// <summary>
         ///     The ElementReference to bind to. Usage: @bind-Ref="myRef"
@@ -21,7 +21,7 @@ namespace Flatify
 
         [Parameter] public EventCallback<ElementReference> RefChanged { get; set; }
 
-        [Parameter] public Boolean ClickPropagation { get; set; } = false;
+        [Parameter] public bool ClickPropagation { get; set; } = false;
 
         /// <summary>
         ///     Calling StateHasChanged to refresh the component's state

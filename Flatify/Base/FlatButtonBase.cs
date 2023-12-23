@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components.Web;
 namespace Flatify
 {
     /// <summary>
-    /// Base component for buttons.
+    ///     Base component for buttons.
     /// </summary>
     public abstract class FlatButtonBase : FlatComponentBase
     {
@@ -31,39 +31,39 @@ namespace Flatify
         /// <summary>
         ///     If true, the button will be disabled.
         /// </summary>
-        [Parameter] public Boolean Disabled { get; set; } = false;
+        [Parameter] public bool Disabled { get; set; } = false;
 
         /// <summary>
         ///     If true, the click event bubbles up to the containing/parent component.
         /// </summary>
-        [Parameter] public Boolean ClickPropagation { get; set; }
+        [Parameter] public bool ClickPropagation { get; set; }
 
         /// <summary>
         ///     If set to a URL, clicking the button will open the referenced document. Use Target to specify where
         /// </summary>
-        [Parameter] public String Link { get; set; }
+        [Parameter] public string Link { get; set; }
 
         /// <summary>
         ///     The target attribute specifies where to open the link, if Link is specified. Possible values: _blank | _self |
         ///     _parent | _top | <i> framename </i>
         /// </summary>
-        [Parameter] public String Target { get; set; }
+        [Parameter] public string Target { get; set; }
 
         /// <summary>
         ///     The value of rel attribute for web crawlers. Overrides "noopener" set by <see cref="Target" /> attribute.
         /// </summary>
-        [Parameter] public String Rel { get; set; }
+        [Parameter] public string Rel { get; set; }
 
-        [CascadingParameter(Name = "ParentDisabled")] private Boolean ParentDisabled { get; set; }
+        [CascadingParameter(Name = "ParentDisabled")] private bool ParentDisabled { get; set; }
 
-        public String HtmlTag { get; private set; } = "button";
+        public string HtmlTag { get; private set; } = "button";
 
         public ValueTask FocusAsync()
         {
             return _elementReference.FocusAsync();
         }
 
-        protected Boolean GetDisabledState()
+        protected bool GetDisabledState()
         {
             return Disabled || ParentDisabled;
         }
@@ -104,7 +104,7 @@ namespace Flatify
                 HtmlTag = "a";
         }
 
-        protected String GetRel()
+        protected string GetRel()
         {
             if (Rel is null && Target == "_blank")
                 return "noopener";

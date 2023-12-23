@@ -5,13 +5,13 @@ namespace Flatify
 {
     public partial class FlatCard
     {
-        protected virtual String Classname => new CssBuilder()
+        protected virtual string Classname => new CssBuilder()
                                               .AddClass("card")
                                               .AddClass($"edge-{Edge.ToDescriptionString()}", Edge != EdgeType.None)
                                               .AddClass($"{CardSize.ToDescriptionString()}", CardSize != Size.Medium)
                                               .AddClass(Class)
                                               .Build();
-        protected String Stylename => $"max-width: {MaxWidth}px;";
+        protected string Stylename => $"max-width: {MaxWidth}px;";
 
         // Card Fragments
         /// <summary>
@@ -38,22 +38,22 @@ namespace Flatify
         /// <summary>
         ///     Heading text for the card.
         /// </summary>
-        [Parameter] public String HeadingText { get; set; }
+        [Parameter] public string HeadingText { get; set; }
 
         /// <summary>
         ///     Maximum width for a card. Defaults to 320px.
         /// </summary>
-        [Parameter] public Int32 MaxWidth { get; set; } = 320;
+        [Parameter] public int MaxWidth { get; set; } = 320;
 
         /// <summary>
         ///     Image source for the card.
         /// </summary>
-        [Parameter] public String Img { get; set; }
+        [Parameter] public string Img { get; set; }
 
         /// <summary>
         ///     Alt text for the card image.
         /// </summary>
-        [Parameter] public String Alt { get; set; }
+        [Parameter] public string Alt { get; set; }
 
         /// <summary>
         ///     Size of the general text within the card.

@@ -6,12 +6,14 @@
 namespace Flatify.Themes
 {
     /// <summary>
-    /// Describes a color palette for theming.
+    ///     Describes a color palette for theming.
     /// </summary>
-    /// <remarks>For now, values must be provided as hex values.</remarks>
+    /// <remarks>
+    ///     For now, values must be provided as hex values.
+    /// </remarks>
     public class Palette
     {
-        private Dictionary<String, FlatThemeColor> _colorsDict = new Dictionary<String, FlatThemeColor>
+        private Dictionary<string, FlatThemeColor> _colorsDict = new Dictionary<string, FlatThemeColor>
                                                                  {
                                                                      { "blue", new FlatThemeColor("1cb0f6") },
                                                                      { "green", new FlatThemeColor("58cc02") },
@@ -34,17 +36,17 @@ namespace Flatify.Themes
         public string BgDarker { get; set; } = "ced9e3";
         public string BgDarkest { get; set; } = "809cb6";
         public string Text { get; set; } = "2e4051";
-        public String TextLight => new FlatThemeColor(Text).TintHex(Text, 0.5);
-        public String TextDark => new FlatThemeColor(Text).ShadeHex(Text, 0.25);
-        public string TextInverted { get => Bg; }
-        public string Heading { get => Text; }
-        public string Link { get => ColorsDict["accent"].Value; }
-        public string LinkHover { get => ColorsDict["accent"].Tint; }
-        public string LinkFocus { get => ColorsDict["accent"].Shadier; }
-        public string TapHighlight { get => "transparent"; }
-        public Dictionary<String, FlatThemeColor> ColorsDict => AppendColorDict();
+        public string TextLight => new FlatThemeColor(Text).TintHex(Text, 0.5);
+        public string TextDark => new FlatThemeColor(Text).ShadeHex(Text, 0.25);
+        public string TextInverted => Bg;
+        public string Heading => Text;
+        public string Link => ColorsDict["accent"].Value;
+        public string LinkHover => ColorsDict["accent"].Tint;
+        public string LinkFocus => ColorsDict["accent"].Shadier;
+        public string TapHighlight => "transparent";
+        public Dictionary<string, FlatThemeColor> ColorsDict => AppendColorDict();
 
-        private Dictionary<String, FlatThemeColor> AppendColorDict()
+        private Dictionary<string, FlatThemeColor> AppendColorDict()
         {
             _colorsDict["blue"] = new FlatThemeColor(Blue);
             _colorsDict["green"] = new FlatThemeColor(Green);
@@ -54,7 +56,7 @@ namespace Flatify.Themes
             _colorsDict["purple"] = new FlatThemeColor(Purple);
             _colorsDict["pink"] = new FlatThemeColor(Pink);
 
-            var dict = new Dictionary<String, FlatThemeColor>();
+            var dict = new Dictionary<string, FlatThemeColor>();
             foreach (var colorPair in _colorsDict)
             {
                 dict.Add(colorPair.Key, colorPair.Value);
@@ -73,7 +75,7 @@ namespace Flatify.Themes
         // Converts hex to RGB
         private byte[] HexToRgb(string hex)
         {
-            byte[] rgb = new byte[3];
+            var rgb = new byte[3];
             rgb[0] = Convert.ToByte(hex.Substring(0, 2), 16);
             rgb[1] = Convert.ToByte(hex.Substring(2, 2), 16);
             rgb[2] = Convert.ToByte(hex.Substring(4, 2), 16);

@@ -19,17 +19,17 @@ namespace Flatify.Utilities
         public static Converter<DateTime?> NullableIsoDate => new Converter<DateTime?>
                                                               { SetFunc = SetNullableIsoDate, GetFunc = GetNullableIsoDate };
 
-        private static String SetIsoDate(DateTime value)
+        private static string SetIsoDate(DateTime value)
         {
             return value.ToIsoDateString();
         }
 
-        private static String SetNullableIsoDate(DateTime? value)
+        private static string SetNullableIsoDate(DateTime? value)
         {
             return value.ToIsoDateString();
         }
 
-        private static DateTime GetIsoDate(String value)
+        private static DateTime GetIsoDate(string value)
         {
             if (DateTime.TryParse(value, out var dateTime))
                 return dateTime;
@@ -37,7 +37,7 @@ namespace Flatify.Utilities
             return DateTime.MinValue;
         }
 
-        private static DateTime? GetNullableIsoDate(String value)
+        private static DateTime? GetNullableIsoDate(string value)
         {
             if (DateTime.TryParse(value, out var dateTime))
                 return dateTime;

@@ -28,7 +28,7 @@ namespace Flatify
         RoundXs,
 
         /// <summary>
-        /// Slightly rounds the edges of the border.
+        ///     Slightly rounds the edges of the border.
         /// </summary>
         [Description("round-sm")]
         RoundSm,

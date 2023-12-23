@@ -5,7 +5,7 @@
 // Modified: 20-12-2023
 namespace Flatify.Utilities
 {
-    public class BoolConverter<T> : Converter<T, Boolean?>
+    public class BoolConverter<T> : Converter<T, bool?>
     {
         public BoolConverter()
         {
@@ -13,26 +13,26 @@ namespace Flatify.Utilities
             GetFunc = OnGet;
         }
 
-        private T OnGet(Boolean? value)
+        private T OnGet(bool? value)
         {
             try
             {
                 var type = typeof(T);
-                if (type == typeof(Boolean))
+                if (type == typeof(bool))
                 {
-                    Object result = value == true;
+                    object result = value == true;
                     return (T)result;
                 }
 
-                if (type == typeof(Boolean?))
+                if (type == typeof(bool?))
                 {
-                    Object result = value;
+                    object result = value;
                     return (T)result;
                 }
 
-                if (type == typeof(String))
+                if (type == typeof(string))
                 {
-                    Object result = value switch
+                    object result = value switch
                     {
                         true => "on",
                         false => "off",
@@ -41,17 +41,17 @@ namespace Flatify.Utilities
                     return (T)result;
                 }
 
-                if (type == typeof(Int32))
+                if (type == typeof(int))
                 {
-                    Object result = value == true
+                    object result = value == true
                                         ? 1
                                         : 0;
                     return (T)result;
                 }
 
-                if (type == typeof(Int32?))
+                if (type == typeof(int?))
                 {
-                    Object? result = value switch
+                    object? result = value switch
                     {
                         true => 1,
                         false => 0,
@@ -70,7 +70,7 @@ namespace Flatify.Utilities
             }
         }
 
-        private Boolean? OnSet(T arg)
+        private bool? OnSet(T arg)
         {
             // This catches all nullable values which are null. No further null checks are needed below.!
             if (arg is null)
@@ -80,19 +80,19 @@ namespace Flatify.Utilities
             {
                 switch (arg)
                 {
-                    case Boolean boolValue:
+                    case bool boolValue:
                         return boolValue;
-                    case Int32 intValue:
+                    case int intValue:
                         return intValue > 0;
-                    case String stringValue when string.IsNullOrWhiteSpace(stringValue):
+                    case string stringValue when string.IsNullOrWhiteSpace(stringValue):
                         return null;
-                    case String stringValue when bool.TryParse(stringValue, out var flag):
+                    case string stringValue when bool.TryParse(stringValue, out var flag):
                         return flag;
-                    case String stringValue when stringValue.ToLowerInvariant() == "on":
+                    case string stringValue when stringValue.ToLowerInvariant() == "on":
                         return true;
-                    case String stringValue when stringValue.ToLowerInvariant() == "off":
+                    case string stringValue when stringValue.ToLowerInvariant() == "off":
                         return false;
-                    case String:
+                    case string:
                         return null;
                     default:
                         UpdateSetError($"Unable to convert to bool? from type {typeof(T).Name}");

@@ -22,7 +22,7 @@ namespace Flatify.Utilities
         /// <returns>
         ///     <see cref="string" />
         /// </returns>
-        public static String ToDescriptionString(this Enum value)
+        public static string ToDescriptionString(this Enum value)
         {
             var field = value.GetType().GetField(value.ToString());
             if (field is null)
@@ -39,12 +39,12 @@ namespace Flatify.Utilities
 
         #region DateTime Extensions
 
-        public static String ToIsoDateString(this DateTime self)
+        public static string ToIsoDateString(this DateTime self)
         {
             return $"{self.Year:D4}-{self.Month:D2}-{self.Day:D2}";
         }
 
-        public static String? ToIsoDateString(this DateTime? self)
+        public static string? ToIsoDateString(this DateTime? self)
         {
             if (self is null)
             {

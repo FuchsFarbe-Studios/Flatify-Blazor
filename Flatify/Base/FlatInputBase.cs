@@ -8,70 +8,70 @@ namespace Flatify
         /// <summary>
         ///     If true, the input element will be required.
         /// </summary>
-        [Parameter] public Boolean Required { get; set; }
+        [Parameter] public bool Required { get; set; }
 
         /// <summary>
         ///     If true, the input element will be disabled.
         /// </summary>
-        [Parameter] public Boolean Disabled { get; set; }
+        [Parameter] public bool Disabled { get; set; }
 
         /// <summary>
         ///     Determines disabled state.
         /// </summary>
-        [CascadingParameter(Name = "ParentDisabled")] private Boolean ParentDisabled { get; set; }
+        [CascadingParameter(Name = "ParentDisabled")] private bool ParentDisabled { get; set; }
 
         /// <summary>
         ///     If true, the input will be read-only.
         /// </summary>
-        [Parameter] public Boolean ReadOnly { get; set; }
+        [Parameter] public bool ReadOnly { get; set; }
 
         /// <summary>
         ///     Determines readonly state.
         /// </summary>
-        [CascadingParameter(Name = "ParentReadOnly")] private Boolean ParentReadOnly { get; set; }
+        [CascadingParameter(Name = "ParentReadOnly")] private bool ParentReadOnly { get; set; }
 
         /// <summary>
         ///     The HelperText will be displayed below the text field.
         /// </summary>
-        [Parameter] public String HelperText { get; set; }
+        [Parameter] public string HelperText { get; set; }
 
         /// <summary>
         ///     Error text that displays when internal parsing fails.
         /// </summary>
-        [Parameter] public String ParsingErrorText { get; set; } = "The entered value could not be validated.";
+        [Parameter] public string ParsingErrorText { get; set; } = "The entered value could not be validated.";
 
         /// <summary>
         ///     Displayed when successfully parsed value is still an invalid value.
         /// </summary>
-        [Parameter] public String InvalidErrorText { get; set; } = "The entered value is invalid!";
+        [Parameter] public string InvalidErrorText { get; set; } = "The entered value is invalid!";
 
         /// <summary>
         ///     Displayed when the input is required and no value is provided.
         /// </summary>
-        [Parameter] public String RequiredErrorText { get; set; } = "This field is required!";
+        [Parameter] public string RequiredErrorText { get; set; } = "This field is required!";
 
         /// <summary>
         ///     The short hint displayed in the input before the user enters a value.
         /// </summary>
-        [Parameter] public String Placeholder { get; set; }
+        [Parameter] public string Placeholder { get; set; }
 
         /// <summary>
         ///     If string has value the label text will be displayed in the input, and scaled down at the top if the input has
         ///     value.
         /// </summary>
-        [Parameter] public String Label { get; set; }
+        [Parameter] public string Label { get; set; }
 
         /// <summary>
         ///     Hints at the type of data that might be entered by the user while editing the input
         /// </summary>
         [Parameter] public InputType InputMode { get; set; } = InputType.Text;
 
-        public IReadOnlyDictionary<String, Object> UserAttributes => AdditionalAttributes;
-        protected Boolean GetDisabledState()
+        public IReadOnlyDictionary<string, object> UserAttributes => AdditionalAttributes;
+        protected bool GetDisabledState()
         {
             return Disabled || ParentDisabled;
         }
-        protected Boolean GetReadOnlyState()
+        protected bool GetReadOnlyState()
         {
             return ReadOnly || ParentReadOnly;
         }
@@ -82,22 +82,22 @@ namespace Flatify
         internal virtual InputType GetInputType() { return InputType.Text; }
 
         /// <inheritdoc />
-        protected override Boolean TryParseValueFromString(String value, out T result, out String validationErrorMessage)
+        protected override bool TryParseValueFromString(string value, out T result, out string validationErrorMessage)
         {
-            if (typeof(T) == typeof(String))
+            if (typeof(T) == typeof(string))
             {
                 result = value != null
-                             ? (T)(Object)value
+                             ? (T)(object)value
                              : default;
                 validationErrorMessage = null;
                 return true;
             }
 
-            if (typeof(T) == typeof(Int32))
+            if (typeof(T) == typeof(int))
             {
                 if (int.TryParse(value, out var resultInt))
                 {
-                    result = (T)(Object)resultInt;
+                    result = (T)(object)resultInt;
                     validationErrorMessage = null;
                     return true;
                 }
@@ -106,11 +106,11 @@ namespace Flatify
                 return false;
             }
 
-            if (typeof(T) == typeof(Double))
+            if (typeof(T) == typeof(double))
             {
                 if (double.TryParse(value, out var resultDouble))
                 {
-                    result = (T)(Object)resultDouble;
+                    result = (T)(object)resultDouble;
                     validationErrorMessage = null;
                     return true;
                 }
@@ -119,11 +119,11 @@ namespace Flatify
                 return false;
             }
 
-            if (typeof(T) == typeof(Decimal))
+            if (typeof(T) == typeof(decimal))
             {
                 if (decimal.TryParse(value, out var resultDecimal))
                 {
-                    result = (T)(Object)resultDecimal;
+                    result = (T)(object)resultDecimal;
                     validationErrorMessage = null;
                     return true;
                 }
@@ -132,11 +132,11 @@ namespace Flatify
                 return false;
             }
 
-            if (typeof(T) == typeof(Single))
+            if (typeof(T) == typeof(float))
             {
                 if (float.TryParse(value, out var resultFloat))
                 {
-                    result = (T)(Object)resultFloat;
+                    result = (T)(object)resultFloat;
                     validationErrorMessage = null;
                     return true;
                 }
@@ -145,11 +145,11 @@ namespace Flatify
                 return false;
             }
 
-            if (typeof(T) == typeof(Int64))
+            if (typeof(T) == typeof(long))
             {
                 if (long.TryParse(value, out var resultLong))
                 {
-                    result = (T)(Object)resultLong;
+                    result = (T)(object)resultLong;
                     validationErrorMessage = null;
                     return true;
                 }
@@ -158,11 +158,11 @@ namespace Flatify
                 return false;
             }
 
-            if (typeof(T) == typeof(Int16))
+            if (typeof(T) == typeof(short))
             {
                 if (short.TryParse(value, out var resultShort))
                 {
-                    result = (T)(Object)resultShort;
+                    result = (T)(object)resultShort;
                     validationErrorMessage = null;
                     return true;
                 }

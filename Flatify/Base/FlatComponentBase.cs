@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace Flatify
 {
     /// <summary>
-    /// FlatifyCSS base component.
+    ///     FlatifyCSS base component.
     /// </summary>
     public abstract class FlatComponentBase : ComponentBase, IFlatStateHasChanged
     {
@@ -18,28 +18,28 @@ namespace Flatify
         protected ILogger Logger => _logger ??= LoggerFactory.CreateLogger(GetType());
 
         /// <summary>
-        /// Custom classes to be applied to the component. Separated by a space.
+        ///     Custom classes to be applied to the component. Separated by a space.
         /// </summary>
         [Parameter] public string Class { get; set; }
 
         /// <summary>
-        /// User styles, applied on top of the component's own classes and styles.
+        ///     User styles, applied on top of the component's own classes and styles.
         /// </summary>
         [Parameter]
-        public String Style { get; set; }
+        public string Style { get; set; }
 
         /// <summary>
-        /// Use Tag to attach any user data object to the component for your convenience.
+        ///     Use Tag to attach any user data object to the component for your convenience.
         /// </summary>
         [Parameter]
-        public Object Tag { get; set; }
+        public object Tag { get; set; }
 
         /// <summary>
-        /// UserAttributes carries all attributes you add to the component that don't match any of its parameters.
-        /// They will be splatted onto the underlying HTML tag.
+        ///     UserAttributes carries all attributes you add to the component that don't match any of its parameters. They will be
+        ///     splatted onto the underlying HTML tag.
         /// </summary>
         [Parameter(CaptureUnmatchedValues = true)]
-        public Dictionary<String, Object> UserAttributes { get; set; } = new Dictionary<String, Object>();
+        public Dictionary<string, object> UserAttributes { get; set; } = new Dictionary<string, object>();
 
         /// <inheritdoc />
         public void FlatStateHasChanged()

@@ -13,30 +13,30 @@ namespace Flatify
         /// <summary>
         ///     Determines if the field is required.
         /// </summary>
-        public Boolean Required { get; set; }
+        public bool Required { get; set; }
 
         /// <summary>
         ///     Set if the field encountered an error.
         /// </summary>
-        public Boolean Error { get; set; }
+        public bool Error { get; set; }
 
         /// <summary>
         ///     Set if the form component fails multiple validations.
         /// </summary>
-        public Boolean HasErrors { get; }
+        public bool HasErrors { get; }
 
         /// <summary>
         ///     Determines if the field has been modified.
         /// </summary>
-        public Boolean Touched { get; }
+        public bool Touched { get; }
 
         /// <summary> Validation object. </summary>
-        public Object Validation { get; set; }
+        public object Validation { get; set; }
 
         /// <summary>
         ///     List of validation errors.
         /// </summary>
-        public List<String> ValidationErrors { get; set; }
+        public List<string> ValidationErrors { get; set; }
 
         /// <summary> Validates a field. </summary>
         /// <returns>

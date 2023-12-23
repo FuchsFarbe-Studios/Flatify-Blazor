@@ -11,7 +11,7 @@ namespace Flatify
         [Parameter] public ButtonType Type { get; set; } = ButtonType.Button;
         [Parameter] public Variant Variant { get; set; } = Variant.Light;
         [Parameter] public RenderFragment LayerContent { get; set; }
-        protected String Classname => new CssBuilder("button")
+        protected string Classname => new CssBuilder("button")
                                       //.AddClass(Variant.ToDescriptionString())
                                       .AddClass("two-layer-button")
                                       .AddClass($"style-{Color.ToDescriptionString()}")

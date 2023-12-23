@@ -11,7 +11,7 @@ namespace Flatify
         [Parameter] public ButtonType Type { get; set; } = ButtonType.Button;
         [Parameter] public Variant Variant { get; set; } = Variant.Light;
 
-        protected virtual String Classname => new CssBuilder("button")
+        protected virtual string Classname => new CssBuilder("button")
                                               //.AddClass(Variant.ToDescriptionString())
                                               .AddClass($"style-{Color.ToDescriptionString()}")
                                               .AddClass($"edge-{Edge.ToDescriptionString()}")

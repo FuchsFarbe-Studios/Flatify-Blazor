@@ -13,7 +13,7 @@ namespace Flatify
 {
     public partial class FlatThemeProvider
     {
-        private const String PREFIX = "--flatify__";
+        private const string PREFIX = "--flatify__";
         private const string PALETTE = "palette";
         private const string TYPOGRAPHY = "-typo";
         private FlatTheme _theme;
@@ -30,7 +30,7 @@ namespace Flatify
 
         [Parameter] public EventCallback ThemeChanged { get; set; }
 
-        /// <inheritdoc />		
+        /// <inheritdoc />
         protected override void OnInitialized()
         {
             Theme ??= new FlatTheme

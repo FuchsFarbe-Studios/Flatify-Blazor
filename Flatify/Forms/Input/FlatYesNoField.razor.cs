@@ -7,11 +7,11 @@ namespace Flatify.Forms
         /// <summary>
         ///     When this is set to yes, boolean values will be read as Y or N strings instead of true or false.
         /// </summary>
-        [Parameter] public Boolean UseYesNo { get; set; } = false;
+        [Parameter] public bool UseYesNo { get; set; } = false;
         [Parameter] public YesNoType YesNoType { get; set; } = YesNoType.Checkbox;
 
         /// <inheritdoc />
-        protected override String FormatValueAsString(Boolean value)
+        protected override string FormatValueAsString(bool value)
         {
             if (UseYesNo)
                 return value
@@ -22,7 +22,7 @@ namespace Flatify.Forms
         }
 
         /// <inheritdoc />
-        protected override Boolean TryParseValueFromString(String value, out Boolean result, out String validationErrorMessage)
+        protected override bool TryParseValueFromString(string value, out bool result, out string validationErrorMessage)
         {
             if (UseYesNo)
             {

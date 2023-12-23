@@ -7,7 +7,6 @@ namespace Flatify.Themes
 {
     public class BaseTypo
     {
-
     }
 
     public class Typography
