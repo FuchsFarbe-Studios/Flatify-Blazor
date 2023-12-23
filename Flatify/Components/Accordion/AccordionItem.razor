@@ -1,0 +1,19 @@
+@namespace Flatify
+
+<div class="accordion-item">
+	<h2 class=@($"accordion-header {(isContentVisible ? "active" : "")}")>
+		<button class=@("accordion-toggle")>
+			@TitleContent
+			<span class=@($"add-button {(isContentVisible ? "active" : "")}")></span>
+		</button>
+	</h2>
+
+	@if (isContentVisible)
+	{
+		<div id="@ID" class="@Classname">
+			<div class="accordion-body">
+				@Content
+			</div>
+		</div>
+	}
+</div>

@@ -1,0 +1,5 @@
+@namespace Flatify
+@inherits FlatComponentBase
+<div class="@Classname" id="@(Guid.NewGuid().ToString())" @attributes="@UserAttributes" style="@Style">
+	@ChildContent
+</div>
