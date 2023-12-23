@@ -1,6 +1,6 @@
 // *** General: prefix, rtl and ltr
 // add a prefix before CSS variables to prevent unwanted conflicts.
-$CSS_VAR_PFX: flat- !default;
+$CSS_VAR_PFX: flatify__ !default;
 $TYPO_PFX: -typo !default;
 $IS_LTR: true !default;
 $CENTERED_CONTAINERS: true !default;

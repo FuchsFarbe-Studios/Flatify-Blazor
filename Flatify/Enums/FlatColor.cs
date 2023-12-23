@@ -7,6 +7,7 @@ using System.ComponentModel;
 
 namespace Flatify
 {
+
     public enum FlatColor
     {
         [Description("blue")]

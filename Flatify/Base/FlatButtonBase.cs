@@ -10,10 +10,20 @@ namespace Flatify
     {
         protected ElementReference _elementReference;
 
+        /// <summary> Child content. </summary>
+        [Parameter] public RenderFragment ChildContent { get; set; }
+
         /// <summary>
         ///     The button Type (Button, Submit, Refresh)
         /// </summary>
-        [Parameter] public ButtonType ButtonType { get; set; }
+        [Parameter] public ButtonType ButtonType { get; set; } = ButtonType.Button;
+
+        /// <summary>
+        ///     The ElementReference to bind to. Usage: @bind-Ref="myRef"
+        /// </summary>
+        [Parameter] public ElementReference? Ref { get; set; }
+
+        [Parameter] public EventCallback<ElementReference> RefChanged { get; set; }
 
         /// <summary> Button click event. </summary>
         [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
@@ -21,7 +31,12 @@ namespace Flatify
         /// <summary>
         ///     If true, the button will be disabled.
         /// </summary>
-        [Parameter] public Boolean Disabled { get; set; }
+        [Parameter] public Boolean Disabled { get; set; } = false;
+
+        /// <summary>
+        ///     If true, the click event bubbles up to the containing/parent component.
+        /// </summary>
+        [Parameter] public Boolean ClickPropagation { get; set; }
 
         /// <summary>
         ///     If set to a URL, clicking the button will open the referenced document. Use Target to specify where
@@ -41,7 +56,7 @@ namespace Flatify
 
         [CascadingParameter(Name = "ParentDisabled")] private Boolean ParentDisabled { get; set; }
 
-        public String HtmlTag { get; private set; }
+        public String HtmlTag { get; private set; } = "button";
 
         public ValueTask FocusAsync()
         {

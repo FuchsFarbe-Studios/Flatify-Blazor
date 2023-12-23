@@ -13,7 +13,7 @@ namespace Flatify
 {
     public partial class FlatThemeProvider
     {
-        private const string PREFIX = "--flat-";
+        private const String PREFIX = "--flatify__";
         private const string PALETTE = "palette";
         private const string TYPOGRAPHY = "-typo";
         private FlatTheme _theme;
@@ -113,10 +113,10 @@ namespace Flatify
             theme.AppendLine($"{PREFIX}bg-color-darker: #" + Theme.Palette.BgDarker + ";");
             theme.AppendLine($"{PREFIX}bg-color-darkest: #" + Theme.Palette.BgDarkest + ";");
 
-            theme.AppendLine($"{PREFIX}text-color: #" + Theme.Palette.Text + ";");
-            theme.AppendLine($"{PREFIX}text-color-light: #" + Theme.Palette.TextLight + ";");
-            theme.AppendLine($"{PREFIX}text-color-dark: #" + Theme.Palette.TextDark + ";");
-            theme.AppendLine($"{PREFIX}text-color-inverted: #" + Theme.Palette.TextInverted + ";");
+            theme.AppendLine($"{PREFIX}txt-color: #" + Theme.Palette.Text + ";");
+            theme.AppendLine($"{PREFIX}txt-color-light: #" + Theme.Palette.TextLight + ";");
+            theme.AppendLine($"{PREFIX}txt-color-dark: #" + Theme.Palette.TextDark + ";");
+            theme.AppendLine($"{PREFIX}txt-color-inverted: #" + Theme.Palette.TextInverted + ";");
             theme.AppendLine($"{PREFIX}heading-color: #" + Theme.Palette.Heading + ";");
             foreach (var color in Theme.Palette.ColorsDict.Keys)
             {
