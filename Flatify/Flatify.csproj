@@ -22,4 +22,8 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.25"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <UpToDateCheckInput Remove="Components\Table\FlatTable.razor"/>
+    </ItemGroup>
+
 </Project>

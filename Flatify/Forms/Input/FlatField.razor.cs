@@ -1,7 +1,7 @@
 using Flatify.Utilities;
 using Microsoft.AspNetCore.Components;
 
-namespace Flatify
+namespace Flatify.Forms
 {
     public partial class FlatField
     {
