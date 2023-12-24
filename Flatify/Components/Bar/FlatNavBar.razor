@@ -2,16 +2,23 @@
 @inherits FlatComponentBase
 
 <nav class="@Classname" @attributes="@UserAttributes" style="@Style">
+	<!-- Branding -->
 	@if (UseBranding)
 	{
-		<a class="navbar-logo" href="@BrandLink">
-			<img src="@Logo" alt="logo" />
+		<a class="navbar-logo height-100p" href="@BrandLink">
+			@if (!string.IsNullOrWhiteSpace(Logo))
+			{
+				<img src="@Logo" alt="logo" />
+			}
 		</a>
 	}
+	<!-- Main Navigation -->
 	<ul class="links">
 		@LeftBar
 	</ul>
-	<div class="search-bar push-right">
+
+	<!-- Account and Profile -->
+	<ul class="links push-right">
 		@RightBar
-	</div>
+	</ul>
 </nav>
