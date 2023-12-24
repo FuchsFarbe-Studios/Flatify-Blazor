@@ -10,16 +10,16 @@ namespace Flatify.Forms
                                       .AddClass("input-wrapper")
                                       .AddClass("floating-label", Floating)
                                       .AddClass("is-textarea", isArea)
+                                      .AddClass($"width-{Width.ToDescriptionString()}")
                                       .AddClass(CssClass)
                                       .Build();
-
         protected string InputClassname => new CssBuilder()
                                            .AddClass("disabled", Disabled)
                                            .AddClass(CssClass)
                                            .Build();
 
         protected string LabelClassname => new CssBuilder()
-                                           .AddClass("form-label", Inline)
+                                           .AddClass("form-label")
                                            .AddClass("inline", Inline)
                                            .Build();
         protected bool isArea => LineCount > 1;
@@ -39,6 +39,9 @@ namespace Flatify.Forms
         /// Maximum number of characters that the input will accept
         /// </summary>
         [Parameter] public int MaxLength { get; set; } = 524288;
+
+        /// <summary> Width of the input. </summary>
+        [Parameter] public Width Width { get; set; } = Width.Medium;
 
         /// <summary>
         ///     Makes the labels in-line with the input

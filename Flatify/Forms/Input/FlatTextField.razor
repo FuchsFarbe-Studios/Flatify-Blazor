@@ -2,7 +2,7 @@
 @using Flatify.Utilities
 @inherits FlatInputBase<string>
 
-<FlatField Class="@CssClass" Floating="@Floating" IsArea="@isArea" @attributes="@UserAttributes">
+<FlatField Floating="@Floating" IsArea="@isArea" @attributes="@UserAttributes">
 	@if (!Floating)
 	{
 		<label name="@Id" class="@LabelClassname" for="@Id">@Label</label>
@@ -14,7 +14,6 @@
 	else
 	{
 		<textarea class="@InputClassname" type="@(InputMode.ToDescriptionString())" @bind="@CurrentValueAsString" placeholder="@inputPlaceholder" @attributes="@UserAttributes" id="@Id" rows="@LineCount" maxlength="@MaxLength" required="@Required" name="@Id" readonly="@ReadOnly" disabled="@Disabled" />
-
 	}
 	@if (Floating)
 	{

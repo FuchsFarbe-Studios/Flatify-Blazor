@@ -2,7 +2,7 @@
 @using Flatify.Utilities
 @inherits FlatButtonBase
 
-<FlatElement @bind-Ref="@_elementReference" HtmlTag="@HtmlTag" Class="@Classname" Style="@Style" @attributes="@UserAttributes" @onclick="@OnClickHandler" type="@ButtonType.ToDescriptionString()" href="@Link" target="@Target" rel="@GetRel()" disabled="@GetDisabledState()" ClickPropagation="@ClickPropagation">
+<FlatElement @bind-Ref="@_elementReference" HtmlTag="@HtmlTag" Class="@Classname" Style="@Style" @attributes="@UserAttributes" @onclick="@OnClickHandler" rel="@Rel" type="@Type.ToDescriptionString()" href="@Link" target="@Target" Tag="@Tag" ClickPropagation="@ClickPropagation">
 
 	@ChildContent
 

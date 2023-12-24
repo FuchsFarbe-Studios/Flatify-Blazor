@@ -2,6 +2,6 @@
 @using Microsoft.AspNetCore.Components.Routing
 @inherits FlatComponentBase
 
-<li class="@Classname" @attributes="@UserAttributes">
-	<NavLink href="@Link" Match="@MatchMode">@ChildContent</NavLink>
-</li>
+<FlatElement HtmlTag="@(MenuItem ? "li" : "span")" Class="@Classname" Style="@Style">
+	<NavLink class="push-right" href="@Link" Match="@MatchMode">@ChildContent</NavLink>
+</FlatElement>
