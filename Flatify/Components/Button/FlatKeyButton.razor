@@ -1,0 +1,11 @@
+@using Flatify.Utilities
+@namespace Flatify
+<kbd>
+	@Text
+</kbd>
+
+@code {
+	protected string Classname => new CssBuilder().Build();
+
+	[Parameter] public string Text { get; set; }
+}
