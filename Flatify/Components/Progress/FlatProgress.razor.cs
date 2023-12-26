@@ -1,7 +1,7 @@
 using Flatify.Utilities;
 using Microsoft.AspNetCore.Components;
 
-namespace Flatify.Components.Progress
+namespace Flatify
 {
     /// <summary>
     ///     Creates a spinner or progress bar.
