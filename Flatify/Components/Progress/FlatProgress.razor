@@ -1,0 +1,11 @@
+@switch (Type)
+{
+	case ProgressType.Bar:
+		<div class="progress">
+			<div class="progress-bar" role="progressbar" aria-valuenow="@ProgressPercent" aria-valuemin="@ProgressMinValue" aria-valuemax="@ProgressMaxValue"></div>
+		</div>
+		break;
+	default:
+		<span class="@SpinnerClassName" />
+		break;
+}

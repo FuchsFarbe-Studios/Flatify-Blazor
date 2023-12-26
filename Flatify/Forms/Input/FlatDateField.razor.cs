@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace Flatify.Forms
 {
-    public partial class FlatDate<TDateTime>
+    public partial class FlatDateField<TDateTime>
     {
         private const string DateFormat = "yyyy-MM-dd";// Compatible with HTML 'date' inputs
         private const string DateTimeLocalFormat = "yyyy-MM-ddTHH:mm:ss";// Compatible with HTML 'datetime-local' inputs

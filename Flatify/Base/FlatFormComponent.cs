@@ -47,15 +47,18 @@ namespace Flatify
         {
             return null;
         }
+
         /// <inheritdoc />
         public Task ResetAsync()
         {
             return null;
         }
+
         /// <inheritdoc />
         public void ResetValidation()
         {
         }
+
         /// <inheritdoc />
         public void FormStateHasChanged()
         {

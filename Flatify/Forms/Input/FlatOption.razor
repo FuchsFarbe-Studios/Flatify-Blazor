@@ -1,0 +1,24 @@
+@namespace Flatify
+@typeparam TValue
+<option value="@Value">
+	@ChildContent
+</option>
+
+@code {
+	[CascadingParameter] public FlatSelectField<TValue> FlatSelect { get; set; }
+	[Parameter] public TValue Value { get; set; }
+	[Parameter] public RenderFragment ChildContent { get; set; }
+
+	/// <inheritdoc />
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+	}
+
+	/// <inheritdoc />
+	protected override void OnParametersSet()
+	{
+		if (FlatSelect != null)
+			FlatSelect.Add(this);
+	}
+}

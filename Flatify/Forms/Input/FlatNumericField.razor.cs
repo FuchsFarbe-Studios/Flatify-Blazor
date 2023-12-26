@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Flatify.Forms
 {
-    public partial class FlatNumericInput<TNumeric>
+    public partial class FlatNumericField<TNumeric>
     {
 
         private Dictionary<string, object> inputAttributeDict = new Dictionary<string, object>();
