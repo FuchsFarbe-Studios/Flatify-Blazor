@@ -3,7 +3,7 @@
 
 <div class="accordion-item">
 	<h2 class=@($"accordion-header {(isContentVisible ? "active" : "")}")>
-		<button class=@("accordion-toggle")   @onclick="@ToggleContentVisibility">
+		<button class=@("accordion-toggle")   @onclick="@ToggleContentVisibility" area-controls="@ID" area-expanded="false">
 			@TitleContent
 			<span class=@($"add-button {(isContentVisible ? "active" : "")}")></span>
 		</button>

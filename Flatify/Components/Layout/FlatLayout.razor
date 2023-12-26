@@ -1,0 +1,22 @@
+@namespace Flatify
+<main>
+	@if (LayoutHeader != null)
+	{
+		<header>
+			@LayoutHeader
+		</header>
+	}
+
+	<div class="@MainClassname">
+		@MainContent
+	</div>
+
+	@if (LayoutFooter != null)
+	{
+		<footer>
+			<div class="flex-center">
+				@LayoutFooter
+			</div>
+		</footer>
+	}
+</main>

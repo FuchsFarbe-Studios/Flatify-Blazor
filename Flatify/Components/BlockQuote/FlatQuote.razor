@@ -1,0 +1,13 @@
+@namespace Flatify
+@inherits FlatComponentBase
+
+<blockquote cite="@Citation" class="@Classname" @attributes="@UserAttributes" style="@Style">
+	@if (QuoteContent != null)
+	{
+		@QuoteContent
+	}
+	@if (!string.IsNullOrWhiteSpace(Citation))
+	{
+		<cite>@Citation</cite>
+	}
+</blockquote>
