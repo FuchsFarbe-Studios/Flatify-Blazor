@@ -1,0 +1,4 @@
+@inherits FlatTextInput
+
+<label class="@LabelClassname" for="@FieldIdentifier.FieldName">@Label</label>
+<textarea class="@InputClassname" @bind="@CurrentValue" id="@FieldIdentifier.FieldName" name="@FieldIdentifier.FieldName" required="@Required" type="@InputType.Text" placeholder="@Placeholder" disabled="@Disabled" rows="@Lines" />

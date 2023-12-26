@@ -1,0 +1,5 @@
+@inherits FlatFormComponentBase<TData>
+@typeparam TData
+
+<label class="@LabelClassname" for="@FieldIdentifier.FieldName">@Label</label>
+<input class="@InputClassname" @bind="@CurrentValue" id="@FieldIdentifier.FieldName" name="@FieldIdentifier.FieldName" required="@Required" type="@GetInputType(Value)" placeholder="@Placeholder" disabled="@Disabled" />

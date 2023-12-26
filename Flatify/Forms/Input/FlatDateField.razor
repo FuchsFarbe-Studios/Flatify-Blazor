@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Components.Forms
 @typeparam TDateTime
 
-<FlatField Floating="@Floating" Width="@Width">
+<FlatField Floating="@Floating" Width="@Width" Inline="@Inline">
 	@if (!Floating)
 	{
 		<label name="@Id" class="@LabelClassname" for="@Id">@Label</label>

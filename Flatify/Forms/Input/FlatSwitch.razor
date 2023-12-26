@@ -1,10 +1,15 @@
-@namespace Flatify.Forms
+@using Flatify.Utilities
 @inherits FlatBoolField
 
-<FlatField Floating="false">
-	<label class="@Classname" @attributes="@UserAttributes" for="@Id">
-		<input type="checkbox" @bind="@CurrentValue" role="switch" id="@Id" name="@Id" />
-		<span class="check"></span>
-		@Label
-	</label>
-</FlatField>
+<label class="@Classname" for="@Id">
+	<input type="@InputType.Checkbox.ToDescriptionString()" @bind="@CurrentValue" role="switch" id="@Id" name="@Id" />
+	<span class="check"></span>
+	@Label
+</label>
+
+@code{
+	/// <inheritdoc />
+	protected override string Classname => new CssBuilder()
+	                                       .AddClass("")
+	                                       .Build();
+}

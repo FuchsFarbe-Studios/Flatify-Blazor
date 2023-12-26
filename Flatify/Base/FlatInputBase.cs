@@ -3,11 +3,16 @@ using Microsoft.AspNetCore.Components.Forms;
 
 namespace Flatify
 {
-    public class FlatInputBase<T> : InputBase<T>
+    public class FlatInputBase<T> : InputBase<T>, IFormComponent
     {
+        private bool _error;
+        private bool _hasErrors;
         protected string _id = Guid.NewGuid().ToString();
         protected string _label = "";
         protected string _placeholder = "";
+        private bool _touched;
+        private object _validation;
+        private List<string> _validationErrors;
 
         /// <summary>
         ///     Unique identifier for this input field.
@@ -17,11 +22,6 @@ namespace Flatify
             get => _id;
             set => _id = value;
         }
-
-        /// <summary>
-        ///     If true, the input element will be required.
-        /// </summary>
-        [Parameter] public bool Required { get; set; }
 
         /// <summary>
         ///     If true, the input element will be disabled.
@@ -96,7 +96,51 @@ namespace Flatify
         ///     The color of the input component.
         /// </summary>
         [Parameter] public FlatColor Color { get; set; } = FlatColor.Default;
+
         public IReadOnlyDictionary<string, object> UserAttributes => AdditionalAttributes;
+
+        /// <summary>
+        ///     If true, the input element will be required.
+        /// </summary>
+        [Parameter] public bool Required { get; set; }
+
+        /// <inheritdoc />
+        public bool Error { get => _error; set => _error = value; }
+
+        /// <inheritdoc />
+        public bool HasErrors => _hasErrors;
+
+        /// <inheritdoc />
+        public bool Touched => _touched;
+
+        /// <inheritdoc />
+        public object Validation { get => _validation; set => _validation = value; }
+
+        /// <inheritdoc />
+        public List<string> ValidationErrors { get => _validationErrors; set => _validationErrors = value; }
+
+        /// <inheritdoc />
+        public Task Validate()
+        {
+            return null;
+        }
+
+        /// <inheritdoc />
+        public Task ResetAsync()
+        {
+            return null;
+        }
+
+        /// <inheritdoc />
+        public void ResetValidation()
+        {
+        }
+
+        /// <inheritdoc />
+        public void FormStateHasChanged()
+        {
+        }
+
         protected bool GetDisabledState()
         {
             return Disabled || ParentDisabled;

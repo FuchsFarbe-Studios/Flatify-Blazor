@@ -49,8 +49,9 @@ namespace Flatify
         Time,
 
         [Description("week")]
-        Week
+        Week,
 
-
+        [Description("checkbox")]
+        Checkbox
     }
 }

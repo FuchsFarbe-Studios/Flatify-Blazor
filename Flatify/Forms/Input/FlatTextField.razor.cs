@@ -11,6 +11,8 @@ namespace Flatify.Forms
                                       .Build();
         protected string InputClassname => new CssBuilder()
                                            .AddClass("disabled", Disabled)
+                                           .AddClass("valid", !HasErrors)
+                                           .AddClass("invalid", HasErrors)
                                            .AddClass($"style-{Color.ToDescriptionString()}", Color == FlatColor.Default && Color != FlatColor.Inherit && Color != FlatColor.Transparent)
                                            .AddClass(CssClass)
                                            .Build();
@@ -36,6 +38,11 @@ namespace Flatify.Forms
         /// Maximum number of characters that the input will accept
         /// </summary>
         [Parameter] public int MaxLength { get; set; } = 524288;
+
+        /// <summary>
+        ///     Maximum number of characters that the input will accept
+        /// </summary>
+        [Parameter] public int MinLength { get; set; } = 0;
 
         /// <summary> Width of the input. </summary>
         [Parameter] public Width Width { get; set; } = Width.Medium;

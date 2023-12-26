@@ -1,0 +1,8 @@
+@using Flatify.Utilities
+@inherits FlatBoolInputBase
+
+<label class="@LabelClassname" for="@FieldIdentifier.FieldName">
+	<input type="@InputType.Checkbox.ToDescriptionString()" @bind="@CurrentValue" role="switch" id="@FieldIdentifier.FieldName" required="@Required" disabled="@Disabled" placeholder="@Placeholder" name="@FieldIdentifier.FieldName" />
+	<span class="check"></span>
+	@Label
+</label>

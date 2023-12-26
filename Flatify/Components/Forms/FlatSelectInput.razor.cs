@@ -1,37 +1,16 @@
-using Flatify.Utilities;
 using Microsoft.AspNetCore.Components;
 using System.Globalization;
 
-namespace Flatify
+namespace Flatify.Components.Forms
 {
-    public partial class FlatSelectField<TValue>
+    public partial class FlatSelectInput<TValue>
     {
-        protected string LabelClass => new CssBuilder()
-                                       .AddClass("form-label")
-                                       .AddClass($"size-{Size.ToDescriptionString()}")
-                                       .Build();
-        protected string InputClass => new CssBuilder()
-                                       .AddClass($"size-{Size.ToDescriptionString()}")
-                                       .AddClass("valid", !HasErrors && Touched)
-                                       .AddClass("invalid", HasErrors)
-                                       .AddClass($"style-{Color.ToDescriptionString()}", Color == FlatColor.Default && Color != FlatColor.Inherit && Color != FlatColor.Transparent)
-                                       .Build();
-        protected string ContainerClass => new CssBuilder()
-                                           .AddClass(CssClass)
-                                           .Build();
-        [Parameter] public bool Floating { get; set; }
+        private readonly bool _isMultipleSelect;
 
-        /// <summary>
-        ///     The style of the select field.
-        /// </summary>
-        [Parameter] public FlatColor Color { get; set; } = FlatColor.Accent;
-
-        /// <summary>
-        ///     The options content of the select field.
-        /// </summary>
-        [Parameter] public RenderFragment ChildContent { get; set; }
-
-        [Parameter] public bool Inline { get; set; }
+        public FlatSelectInput()
+        {
+            _isMultipleSelect = typeof(TValue).IsArray;
+        }
 
         /// <summary>
         ///     Selected value of the select field.
@@ -42,6 +21,8 @@ namespace Flatify
         ///     Available selections for the select option.
         /// </summary>
         public List<FlatOption<TValue>> Options { get; set; } = new List<FlatOption<TValue>>();
+
+        [Parameter] public RenderFragment ChildContent { get; set; }
 
         protected override void OnInitialized()
         {
@@ -68,12 +49,6 @@ namespace Flatify
         }
 
         /// <inheritdoc />
-        protected override string FormatValueAsString(TValue value)
-        {
-            return value.ToString();
-        }
-
-        /// <inheritdoc />
         protected override bool TryParseValueFromString(string value, out TValue result, out string validationErrorMessage)
         {
             validationErrorMessage = "";
@@ -85,6 +60,33 @@ namespace Flatify
             }
             validationErrorMessage = string.Format(CultureInfo.InvariantCulture, validationErrorMessage, DisplayName ?? FieldIdentifier.FieldName);
             return false;
+        }
+
+        /// <inheritdoc />
+        protected override string? FormatValueAsString(TValue? value)
+        {
+            // We special-case bool values because BindConverter reserves bool conversion for conditional attributes.
+            if (typeof(TValue) == typeof(bool))
+            {
+                return (bool)(object)value!
+                           ? "true"
+                           : "false";
+            }
+            if (typeof(TValue) == typeof(bool?))
+            {
+                return value is not null && (bool)(object)value
+                           ? "true"
+                           : "false";
+            }
+
+            return base.FormatValueAsString(value);
+        }
+
+        private void SetCurrentValueAsStringArray(string?[]? value)
+        {
+            CurrentValue = BindConverter.TryConvertTo<TValue>(value, CultureInfo.CurrentCulture, out var result)
+                               ? result
+                               : default;
         }
     }
 }
