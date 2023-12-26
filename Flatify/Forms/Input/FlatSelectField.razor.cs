@@ -12,6 +12,7 @@ namespace Flatify
                                        .Build();
         protected string InputClass => new CssBuilder()
                                        .AddClass($"size-{Size.ToDescriptionString()}")
+                                       .AddClass($"style-{Color.ToDescriptionString()}", Color == FlatColor.Default && Color != FlatColor.Inherit && Color != FlatColor.Transparent)
                                        .Build();
         protected string ContainerClass => new CssBuilder()
                                            .AddClass(CssClass)

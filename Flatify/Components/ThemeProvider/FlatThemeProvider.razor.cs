@@ -24,6 +24,7 @@ namespace Flatify
             set
             {
                 ThemeChanged.InvokeAsync(this);
+                StateHasChanged();
                 _theme = value;
             }
         }
@@ -36,7 +37,9 @@ namespace Flatify
             Theme ??= new FlatTheme
                       {
                           Palette = new Palette(),
-                          Typography = new Typography()
+                          Typography = new Typography(),
+                          Design = new ThemeDesign(),
+                          Icons = new ThemeIcons()
                       };
         }
 
@@ -48,6 +51,9 @@ namespace Flatify
             themeRoot.AppendLine("<style>");
             themeRoot.Append(":root");
             themeRoot.AppendLine("{");
+            themeRoot.AppendLine("// ***************************************");
+            themeRoot.AppendLine("// THIS IS CUSTOM FOR FUCHSFFARBE STUDIOS");
+            themeRoot.AppendLine("// ***************************************");
             GenerateTheme(themeRoot);
             themeRoot.AppendLine("}");
             themeRoot.AppendLine("</style>");

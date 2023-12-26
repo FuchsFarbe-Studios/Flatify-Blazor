@@ -19,9 +19,6 @@ namespace Flatify
         /// <summary> The buttons color. </summary>
         [Parameter] public FlatColor Color { get; set; } = FlatColor.Accent;
 
-        /// <summary> The buttons type. </summary>
-        [Parameter] public ButtonType Type { get; set; } = ButtonType.Button;
-
         /// <summary>
         ///     The variation in button styling.
         /// </summary>
@@ -30,10 +27,12 @@ namespace Flatify
         protected virtual string Classname => new CssBuilder()
                                               //.AddClass(Variant.ToDescriptionString())
                                               .AddClass("button")
+                                              .AddClass($"size-{Size.ToDescriptionString()}", Size != Size.Medium)
                                               .AddClass($"style-{Color.ToDescriptionString()}")
-                                              .AddClass($"border-{Border.ToDescriptionString()}")
+                                              .AddClass($"{Border.ToDescriptionString()}", Border != BorderType.None)
                                               .AddClass($"edge-{Edge.ToDescriptionString()}")
                                               .AddClass("disabled", Disabled)
+                                              .AddClass(Class)
                                               .Build();
 
         protected override void OnParametersSet()

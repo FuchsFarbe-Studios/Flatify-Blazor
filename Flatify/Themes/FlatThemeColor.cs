@@ -9,8 +9,8 @@ namespace Flatify.Themes
 {
     public class FlatThemeColor
     {
-        private double _shadeStrength = 0.15;
-        private double _tintStrength = 0.15;
+        private double _shadeStrength = 0.915;
+        private double _tintStrength = 0.915;
         private string _value;
 
 

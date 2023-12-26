@@ -1,5 +1,5 @@
 @namespace Flatify
-<main>
+<main style="flex: 1 0 auto;">
 	@if (LayoutHeader != null)
 	{
 		<header>
@@ -13,10 +13,8 @@
 
 	@if (LayoutFooter != null)
 	{
-		<footer>
-			<div class="flex-center">
-				@LayoutFooter
-			</div>
+		<footer class="@FooterClassname">
+			@LayoutFooter
 		</footer>
 	}
 </main>

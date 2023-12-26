@@ -8,10 +8,18 @@ namespace Flatify
     /// </summary>
     public partial class FlatLayout
     {
+        protected string FooterClassname => new CssBuilder()
+                                            .AddClass("menu-items-wrapper")
+                                            .AddClass("navbar")
+                                            .AddClass("sticky-bottom")
+                                            .AddClass($"style-{Color.ToDescriptionString()}-light", Color != FlatColor.Inherit && Color != FlatColor.Default && Color != FlatColor.Transparent)
+                                            .Build();
         protected string MainClassname => new CssBuilder()
                                           .AddClass($"container-{MaxWidth.ToDescriptionString()}")
-                                          .AddClass($"style-{Color.ToDescriptionString()}-light", Color != FlatColor.Inherit && Color != FlatColor.Default && Color != FlatColor.Transparent)
+                                          .AddClass("page-wrap")
+                                          // .AddClass($"style-{Color.ToDescriptionString()}-light", Color != FlatColor.Inherit && Color != FlatColor.Default && Color != FlatColor.Transparent)
                                           .Build();
+
         /// <summary>
         ///     Use to display the main site content.
         /// </summary>

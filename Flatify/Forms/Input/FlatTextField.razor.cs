@@ -11,6 +11,7 @@ namespace Flatify.Forms
                                       .Build();
         protected string InputClassname => new CssBuilder()
                                            .AddClass("disabled", Disabled)
+                                           .AddClass($"style-{Color.ToDescriptionString()}", Color == FlatColor.Default && Color != FlatColor.Inherit && Color != FlatColor.Transparent)
                                            .AddClass(CssClass)
                                            .Build();
 

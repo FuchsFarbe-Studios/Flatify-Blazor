@@ -54,6 +54,11 @@ namespace Flatify
         /// </summary>
         [Parameter] public string Rel { get; set; }
 
+        /// <summary>
+        ///     The size of this button.
+        /// </summary>
+        [Parameter] public Size Size { get; set; } = Size.Medium;
+
         [CascadingParameter(Name = "ParentDisabled")] private bool ParentDisabled { get; set; }
 
         public string HtmlTag { get; private set; } = "button";

@@ -3,6 +3,8 @@
 // FuchsFarbe Studios 2023
 // matsu
 // Modified: 23-12-2023
+using System.ComponentModel;
+
 namespace Flatify
 {
     /// <summary>
@@ -11,7 +13,11 @@ namespace Flatify
     public enum BorderType
     {
         None,
+
+        [Description("bordered")]
         Bordered,
+
+        [Description("outline")]
         Outlined
     }
 }

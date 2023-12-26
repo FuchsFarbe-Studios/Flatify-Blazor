@@ -14,6 +14,7 @@ namespace Flatify.Forms
 
         protected virtual string Classname => new CssBuilder()
                                               .AddClass($"{YesNoType.ToDescriptionString()}-wrapper")
+                                              .AddClass($"style-{Color.ToDescriptionString()}", Color == FlatColor.Default && Color != FlatColor.Inherit && Color != FlatColor.Transparent)
                                               .AddClass($"{Size.ToDescriptionString()}")
                                               .Build();
         /// <summary>

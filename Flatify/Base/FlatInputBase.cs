@@ -92,6 +92,10 @@ namespace Flatify
         /// </summary>
         [Parameter] public InputType InputMode { get; set; } = InputType.Text;
 
+        /// <summary>
+        ///     The color of the input component.
+        /// </summary>
+        [Parameter] public FlatColor Color { get; set; } = FlatColor.Default;
         public IReadOnlyDictionary<string, object> UserAttributes => AdditionalAttributes;
         protected bool GetDisabledState()
         {

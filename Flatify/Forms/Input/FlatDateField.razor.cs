@@ -13,6 +13,7 @@ namespace Flatify.Forms
 
         protected string LabelClassname => new CssBuilder()
                                            .AddClass("form-label")
+                                           .AddClass($"style-{Color.ToDescriptionString()}", Color == FlatColor.Default && Color != FlatColor.Inherit && Color != FlatColor.Transparent)
                                            .AddClass($"width-{Width.ToDescriptionString()}")
                                            .Build();
 

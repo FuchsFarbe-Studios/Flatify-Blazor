@@ -24,6 +24,8 @@
 
     <ItemGroup>
         <UpToDateCheckInput Remove="Components\Table\FlatTable.razor"/>
+        <UpToDateCheckInput Remove="Tabs\FlatTab.razor"/>
+        <UpToDateCheckInput Remove="Tabs\FlatTabs.razor"/>
     </ItemGroup>
 
 </Project>

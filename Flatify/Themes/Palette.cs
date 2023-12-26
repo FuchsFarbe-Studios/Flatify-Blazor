@@ -36,8 +36,8 @@ namespace Flatify.Themes
         public string BgDarker { get; set; } = "ced9e3";
         public string BgDarkest { get; set; } = "809cb6";
         public string Text { get; set; } = "2e4051";
-        public string TextLight => new FlatThemeColor(Text).TintHex(Text, 0.5);
-        public string TextDark => new FlatThemeColor(Text).ShadeHex(Text, 0.25);
+        public string TextLight => new FlatThemeColor(Text).TintHex(Text, 0.015);
+        public string TextDark => new FlatThemeColor(Text).ShadeHex(Text, 0.01);
         public string TextInverted => Bg;
         public string Heading => Text;
         public string Link => ColorsDict["accent"].Value;
@@ -48,13 +48,13 @@ namespace Flatify.Themes
 
         private Dictionary<string, FlatThemeColor> AppendColorDict()
         {
-            _colorsDict["blue"] = new FlatThemeColor(Blue);
-            _colorsDict["green"] = new FlatThemeColor(Green);
-            _colorsDict["yellow"] = new FlatThemeColor(Yellow);
-            _colorsDict["orange"] = new FlatThemeColor(Orange);
-            _colorsDict["red"] = new FlatThemeColor(Red);
-            _colorsDict["purple"] = new FlatThemeColor(Purple);
-            _colorsDict["pink"] = new FlatThemeColor(Pink);
+            _colorsDict["blue"] = new FlatThemeColor(Blue, .01, .01);
+            _colorsDict["green"] = new FlatThemeColor(Green, .01, .01);
+            _colorsDict["yellow"] = new FlatThemeColor(Yellow, .01, .01);
+            _colorsDict["orange"] = new FlatThemeColor(Orange, .01, .01);
+            _colorsDict["red"] = new FlatThemeColor(Red, .01, .01);
+            _colorsDict["purple"] = new FlatThemeColor(Purple, .01, .01);
+            _colorsDict["pink"] = new FlatThemeColor(Pink, .01, .01);
 
             var dict = new Dictionary<string, FlatThemeColor>();
             foreach (var colorPair in _colorsDict)

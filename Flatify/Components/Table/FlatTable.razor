@@ -1,5 +1,21 @@
 @namespace Flatify
 @inherits FlatComponentBase
 
-@code {
-}
+<table class="@Classname">
+	@if (!string.IsNullOrEmpty(CaptionText))
+	{
+		<caption>
+			@CaptionText
+		</caption>
+	}
+	<thead>
+	<tr>
+		@TableHeaders
+	</tr>
+	</thead>
+	<tbody>
+	<CascadingValue Value="this">
+		@TableData
+	</CascadingValue>
+	</tbody>
+</table>
