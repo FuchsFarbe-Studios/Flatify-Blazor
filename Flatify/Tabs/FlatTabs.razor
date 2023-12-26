@@ -1,0 +1,33 @@
+@namespace Flatify
+@inherits FlatItemsControlBase<FlatTab>
+
+<div class="tabs-wrapper">
+	<div class="tabs-header" role="tablist">
+
+		@if (Items.Any())
+		{
+			@foreach (var item in Items)
+			{
+				<button @key="@item.TabID" role="tab" class="@item.ButtonClassName" @onclick="@(() => ActivatePage(item))">
+					@if (item.TabButtonContent != null)
+					{
+						@if (item.TabButtonText != null)
+						{
+							<FlatTypo>@item.TabButtonText</FlatTypo>
+						}
+						@item.TabButtonContent
+					}
+					else
+					{
+						<FlatTypo>@item.TabButtonText</FlatTypo>
+					}
+				</button>
+			}
+		}
+	</div>
+	<div class="tabs-content">
+		<CascadingValue Value="this" IsFixed="true">
+			@ChildContent
+		</CascadingValue>
+	</div>
+</div>
