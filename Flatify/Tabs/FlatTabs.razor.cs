@@ -7,11 +7,11 @@ namespace Flatify
         {
             Items.Add(item);
             if (Items.Count == 1)
-            {
-                ActivatePage(item);
-            }
+                ActivateTab(item);
+            StateHasChanged();
         }
-        private void ActivatePage(FlatTab tab)
+
+        private void ActivateTab(FlatTab tab)
         {
             SelectedIndex = Items.IndexOf(tab);
         }

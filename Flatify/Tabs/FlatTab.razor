@@ -2,5 +2,8 @@
 @inherits FlatComponentBase
 
 <div id="@TabID" class="@TabContentClassName">
-	@ChildContent
+	@if (Tabs.SelectedContainer == this)
+	{
+		@TabContent
+	}
 </div>

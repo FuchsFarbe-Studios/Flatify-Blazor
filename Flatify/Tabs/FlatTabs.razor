@@ -1,33 +1,33 @@
 @namespace Flatify
 @inherits FlatItemsControlBase<FlatTab>
 
-<div class="tabs-wrapper">
-	<div class="tabs-header" role="tablist">
+<CascadingValue Value="this" IsFixed="true">
+	<div class="tabs-wrapper">
+		<div class="tabs-header" role="tablist">
 
-		@if (Items.Any())
-		{
-			@foreach (var item in Items)
+			@if (Items.Any())
 			{
-				<button @key="@item.TabID" role="tab" class="@item.ButtonClassName" @onclick="@(() => ActivatePage(item))">
-					@if (item.TabButtonContent != null)
-					{
-						@if (item.TabButtonText != null)
+				@foreach (var tab in Items)
+				{
+					<button id="@tab.TabID" role="tab" class="@tab.ButtonClassName" @onclick="@(e => ActivateTab(tab))">
+						@if (tab.TabButtonContent != null)
 						{
-							<FlatTypo>@item.TabButtonText</FlatTypo>
+							@if (tab.TabButtonText != null)
+							{
+								<FlatTypo>@tab.TabButtonText</FlatTypo>
+							}
+							@tab.TabButtonContent
 						}
-						@item.TabButtonContent
-					}
-					else
-					{
-						<FlatTypo>@item.TabButtonText</FlatTypo>
-					}
-				</button>
+						else
+						{
+							<FlatTypo>@tab.TabButtonText</FlatTypo>
+						}
+					</button>
+				}
 			}
-		}
-	</div>
-	<div class="tabs-content">
-		<CascadingValue Value="this" IsFixed="true">
+		</div>
+		<div class="tabs-content">
 			@ChildContent
-		</CascadingValue>
+		</div>
 	</div>
-</div>
+</CascadingValue>
