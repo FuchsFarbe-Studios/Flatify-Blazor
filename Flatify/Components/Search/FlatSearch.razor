@@ -1,0 +1,12 @@
+@namespace Flatify
+
+<div class="search-bar">
+	<input type="search" placeholder="Search something..." @bind="@Value" />
+	<button class="search-button" aria-label="Search" @onclick="@OnSearch"></button>
+</div>
+
+@code {
+	[Parameter] public string Value { get; set; }
+	[Parameter] public EventCallback<string> ValueChanged { get; set; }
+	[Parameter] public EventCallback<MouseEventArgs> OnSearch { get; set; }
+}

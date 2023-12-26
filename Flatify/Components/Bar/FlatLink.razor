@@ -3,5 +3,5 @@
 @inherits FlatComponentBase
 
 <FlatElement HtmlTag="@(MenuItem ? "li" : "span")" Class="@Classname" Style="@Style">
-	<NavLink class="push-right" href="@Link" Match="@MatchMode">@ChildContent</NavLink>
+	<NavLink AdditionalAttributes="@UserAttributes" Match="@MatchMode">@ChildContent</NavLink>
 </FlatElement>
