@@ -1,0 +1,15 @@
+@namespace Flatify.Forms
+@using Microsoft.AspNetCore.Components.Forms
+@inherits FlatInputBase<DateTime?>
+
+<FlatField Floating="@Floating">
+	@if (!Floating)
+	{
+		<label name="@Id" class="@LabelClassname" for="@Id">@Label</label>
+	}
+	<InputDate TValue="DateTime?" Type="InputDateType.Date" @bind-Value="@CurrentValue" @AdditionalAttributes="@UserAttributes" id="@Id" />
+	@if (Floating)
+	{
+		<label name="@Id" class="@LabelClassname" for="@Id">@Label</label>
+	}
+</FlatField>

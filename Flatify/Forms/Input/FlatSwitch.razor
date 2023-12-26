@@ -1,0 +1,9 @@
+@namespace Flatify.Forms
+@inherits FlatBoolField
+
+<FlatField Floating="false">
+	<label class="@Classname" @attributes="@UserAttributes" for="@Id">
+		<input type="checkbox" @bind="@CurrentValue" role="switch" id="@Id" name="@Id" />
+		<span class="check"></span>
+	</label>
+</FlatField>
