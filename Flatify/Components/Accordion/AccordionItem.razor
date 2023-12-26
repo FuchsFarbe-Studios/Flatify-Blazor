@@ -1,8 +1,9 @@
+@inherits FlatComponentBase
 @namespace Flatify
 
 <div class="accordion-item">
 	<h2 class=@($"accordion-header {(isContentVisible ? "active" : "")}")>
-		<button class=@("accordion-toggle")>
+		<button class=@("accordion-toggle")   @onclick="@ToggleContentVisibility">
 			@TitleContent
 			<span class=@($"add-button {(isContentVisible ? "active" : "")}")></span>
 		</button>

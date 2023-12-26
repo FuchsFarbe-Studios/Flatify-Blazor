@@ -62,11 +62,10 @@ namespace Flatify
         }
 
         /// <inheritdoc />
-        protected override async Task OnInitializedAsync()
+        protected override void OnParametersSet()
         {
             UserAttributes.Add("class", "menu-item");
             UserAttributes.Add("href", Link);
-            await base.OnInitializedAsync();
         }
 
         // Test relative uri for active state

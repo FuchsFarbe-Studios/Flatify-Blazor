@@ -1,0 +1,16 @@
+@namespace Flatify.Forms
+@typeparam TNumeric
+@using Microsoft.AspNetCore.Components.Forms
+@inherits FlatInputBase<TNumeric>
+
+<FlatField Floating="@Floating" IsArea="false" @attributes="@UserAttributes" Width="@Width">
+	@if (!Floating)
+	{
+		<label name="@Id" class="@LabelClassname" for="@Id">@Label</label>
+	}
+	<InputNumber TValue="TNumeric" class="@InputClassname" @bind-Value="@CurrentValue" @attributes="@inputAttributeDict" />
+	@if (Floating)
+	{
+		<label name="@Id" class="@LabelClassname" for="@Id">@Label</label>
+	}
+</FlatField>

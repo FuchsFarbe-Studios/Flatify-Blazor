@@ -7,10 +7,6 @@ namespace Flatify.Forms
     {
         private int _lineCount = 1;
         protected string Classname => new CssBuilder()
-                                      .AddClass("input-wrapper")
-                                      .AddClass("floating-label", Floating)
-                                      .AddClass("is-textarea", isArea)
-                                      .AddClass($"width-{Width.ToDescriptionString()}")
                                       .AddClass(CssClass)
                                       .Build();
         protected string InputClassname => new CssBuilder()

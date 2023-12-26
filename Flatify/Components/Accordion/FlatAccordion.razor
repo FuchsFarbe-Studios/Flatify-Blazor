@@ -1,6 +1,8 @@
 @namespace Flatify
-@inherits FlatComponentBase
+@inherits FlatItemsControlBase<AccordionItem>
 
 <div @attributes="@UserAttributes" class="@Classname" id="@(Guid.NewGuid().ToString())" style="@Style">
-	@ChildContent
+	<CascadingValue Value="this" IsFixed="true">
+		@ChildContent
+	</CascadingValue>
 </div>

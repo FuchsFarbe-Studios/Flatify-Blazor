@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Components.Forms
 @inherits FlatInputBase<string>
 
-<FlatField Floating="@Floating" IsArea="@isArea" @attributes="@UserAttributes">
+<FlatField Floating="@Floating" IsArea="@isArea" @attributes="@UserAttributes" Class="@Classname" Width="@Width">
 	@if (!Floating)
 	{
 		<label name="@Id" class="@LabelClassname" for="@Id">@Label</label>
