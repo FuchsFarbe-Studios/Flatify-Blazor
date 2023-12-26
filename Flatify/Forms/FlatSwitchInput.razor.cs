@@ -1,6 +1,6 @@
 using Flatify.Utilities;
 
-namespace Flatify.Components.Forms
+namespace Flatify.Forms
 {
     public partial class FlatSwitchInput
     {

@@ -1,4 +1,4 @@
-namespace Flatify.Components.Forms
+namespace Flatify.Forms
 {
     public class FlatBoolInputBase : FlatFormComponentBase<bool>
     {

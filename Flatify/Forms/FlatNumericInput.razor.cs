@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Components;
 
-namespace Flatify.Components.Forms
+namespace Flatify.Forms
 {
     /// <summary>
     ///     Allows data binding with numerical values.
     /// </summary>
-    /// <typeparam name="TData"> Type of numerical data. </typeparam>
+    /// <typeparam name="TData">
+    ///     Type of numerical data.
+    /// </typeparam>
     public partial class FlatNumericInput<TData>
     {
         /// <summary> Minimum allowed value. </summary>

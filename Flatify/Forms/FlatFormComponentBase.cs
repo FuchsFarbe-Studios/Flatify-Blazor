@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Globalization;
 
-namespace Flatify.Components.Forms
+namespace Flatify.Forms
 {
     public class FlatFormComponentBase<TValue> : InputBase<TValue>
     {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace Flatify.Components.Forms
+namespace Flatify.Forms
 {
     /// <summary>
     ///     Allows binding text data.
