@@ -1,0 +1,19 @@
+@inherits FlatComponentBase
+<div class="@containerClassname">
+	@if (LabelFragment != null)
+	{
+		@LabelFragment
+	}
+	@if (InputFragment != null)
+	{
+		@InputFragment
+	}
+	@if (HelpFragment != null)
+	{
+		@HelpFragment
+	}
+	@if (ValidationFragment != null)
+	{
+		@ValidationFragment
+	}
+</div>

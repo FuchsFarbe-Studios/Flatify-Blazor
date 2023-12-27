@@ -3,27 +3,12 @@
 @using Flatify.Utilities
 @typeparam TDateTime
 
-@if (!Floating && !Inline)
-{
-	<label class="@LabelClassname" for="@FieldIdentifier.FieldName">@Label</label>
+<div class="@ContainerClassname">
 	<input class="@InputClassname" @bind="@CurrentValueAsString" id="@FieldIdentifier.FieldName" name="@FieldIdentifier.FieldName" required="@Required" type="@InputType.ToDescriptionString()" placeholder="@floatingPlaceholder" disabled="@Disabled" />
-	<FlatTypo Typo="Typo.Caption" Text="@HelpText" />
-}
-@if (!Floating && Inline)
-{
 	<label class="@LabelClassname" for="@FieldIdentifier.FieldName">@Label</label>
-	<input class="@InputClassname" @bind="@CurrentValueAsString" id="@FieldIdentifier.FieldName" name="@FieldIdentifier.FieldName" required="@Required" type="@InputType.ToDescriptionString()" placeholder="@floatingPlaceholder" disabled="@Disabled" />
-	<FlatTypo Typo="Typo.Caption" Text="@HelpText" />
-}
-@if (Floating && !Inline)
+</div>
+
+@if (!string.IsNullOrEmpty(HelpText))
 {
-	<FlatFormField Class="@ContainerClassname">
-		<ChildContent>
-			<input class="@InputClassname" @bind="@CurrentValueAsString" id="@FieldIdentifier.FieldName" name="@FieldIdentifier.FieldName" required="@Required" type="@InputType.ToDescriptionString()" placeholder="@floatingPlaceholder" disabled="@Disabled" />
-			<label class="@LabelClassname" for="@FieldIdentifier.FieldName">@Label</label>
-		</ChildContent>
-		<HelpContent>
-			<FlatTypo Typo="Typo.Caption" Text="@HelpText" />
-		</HelpContent>
-	</FlatFormField>
+	<p class="help-text size-sm">@HelpText</p>
 }

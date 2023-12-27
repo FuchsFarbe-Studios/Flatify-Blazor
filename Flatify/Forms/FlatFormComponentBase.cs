@@ -14,19 +14,16 @@ namespace Flatify.Forms
                                                     : Placeholder;
 
         protected virtual string ContainerClassname => new CssBuilder()
-                                                       .AddClass("floating-label", Floating && !Inline)
-                                                       .AddClass($"size-{Size.ToDescriptionString()}")
-                                                       .AddClass(FieldClass, !string.IsNullOrEmpty(FieldClass))
-                                                       .AddClass(CssClass)
+                                                       .AddClass("input-wrapper")
+                                                       .AddClass("floating-label")
+                                                       .AddClass($"{Size.ToDescriptionString()}")
                                                        .Build();
         protected virtual string InputClassname => new CssBuilder()
                                                    .AddClass($"style-{Color.ToDescriptionString()}", Color != FlatColor.Default && Color != FlatColor.Transparent && Color != FlatColor.Inherit)
-                                                   .AddClass($"size-{Size.ToDescriptionString()}")
-                                                   .AddClass("disabled", Disabled)
+                                                   //.AddClass("disabled", Disabled)
                                                    .Build();
         protected virtual string LabelClassname => new CssBuilder()
                                                    .AddClass("form-label")
-                                                   .AddClass("inline", Inline && !Floating)
                                                    .AddClass($"color-{Color.ToDescriptionString()}", Color != FlatColor.Default && Color != FlatColor.Transparent && Color != FlatColor.Inherit)
                                                    .Build();
         protected virtual string FieldClass => EditContext.FieldCssClass(FieldIdentifier);

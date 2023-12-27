@@ -1,8 +1,7 @@
 @namespace Flatify.Forms
 @inherits FlatBoolInputBase
 
-@if (!Floating && !Inline)
-{
+<div class="@ContainerClassname">
 	<label class="@LabelClassname" for="@FieldIdentifier.FieldName">
 		@switch (Direction)
 		{
@@ -17,53 +16,5 @@
 				@Label
 				break;
 		}
-
 	</label>
-	<FlatTypo Typo="Typo.Caption" Text="@HelpText" />
-}
-@if (!Floating && Inline)
-{
-	<label class="@LabelClassname" for="@FieldIdentifier.FieldName">
-		@switch (Direction)
-		{
-			case LabelDirection.Left or LabelDirection.Default:
-				@Label
-				<input type="@GetInputType(Value)" @bind="@CurrentValue" role="switch" id="@FieldIdentifier.FieldName" required="@Required" disabled="@Disabled" placeholder="@floatingPlaceholder" name="@FieldIdentifier.FieldName" />
-				<span class="check"></span>
-				break;
-			case LabelDirection.Right:
-				<input type="@GetInputType(Value)" @bind="@CurrentValue" role="switch" id="@FieldIdentifier.FieldName" required="@Required" disabled="@Disabled" placeholder="@floatingPlaceholder" name="@FieldIdentifier.FieldName" />
-				<span class="check"></span>
-				@Label
-				break;
-		}
-
-	</label>
-	<FlatTypo Typo="Typo.Caption" Text="@HelpText" />
-}
-@if (Floating && !Inline)
-{
-	<FlatFormField Class="@ContainerClassname">
-		<ChildContent>
-			<label class="@LabelClassname" for="@FieldIdentifier.FieldName">
-				@switch (Direction)
-				{
-					case LabelDirection.Left or LabelDirection.Default:
-						@Label
-						<input type="@GetInputType(Value)" @bind="@CurrentValue" role="switch" id="@FieldIdentifier.FieldName" required="@Required" disabled="@Disabled" placeholder="@floatingPlaceholder" name="@FieldIdentifier.FieldName" />
-						<span class="check"></span>
-						break;
-					case LabelDirection.Right:
-						<input type="@GetInputType(Value)" @bind="@CurrentValue" role="switch" id="@FieldIdentifier.FieldName" required="@Required" disabled="@Disabled" placeholder="@floatingPlaceholder" name="@FieldIdentifier.FieldName" />
-						<span class="check"></span>
-						@Label
-						break;
-				}
-
-			</label>
-		</ChildContent>
-		<HelpContent>
-			<FlatTypo Typo="Typo.Caption" Text="@HelpText" />
-		</HelpContent>
-	</FlatFormField>
-}
+</div>

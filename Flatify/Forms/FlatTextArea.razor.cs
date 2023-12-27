@@ -6,10 +6,11 @@ namespace Flatify.Forms
     public partial class FlatTextArea
     {
         /// <inheritdoc />
-        protected override string ContainerClassname => base.ContainerClassname
-                                                        + new CssBuilder()
-                                                          .AddClass("is-textarea")
-                                                          .Build();
+        protected override string ContainerClassname => new CssBuilder()
+                                                        .AddClass("input-wrapper")
+                                                        .AddClass("is-textarea")
+                                                        .AddClass("floating-label")
+                                                        .Build();
 
         [Parameter] public int Lines { get; set; } = 1;
     }
