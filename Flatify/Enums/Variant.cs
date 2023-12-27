@@ -21,13 +21,13 @@ namespace Flatify
         /// <summary>
         ///     Creates a filled button based on accent color.
         /// </summary>
-        [Description("style-accent")]
-        Accent,
+        [Description("bordered")]
+        Border,
 
         /// <summary>
         ///     Generates a lightly outlined container or button.
         /// </summary>
-        [Description("style-light")]
-        Light
+        [Description("outlined")]
+        Outline
     }
 }

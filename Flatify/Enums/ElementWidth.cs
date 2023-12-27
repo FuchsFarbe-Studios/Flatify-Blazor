@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace Flatify
 {
-    public enum Width
+    public enum ElementWidth
     {
         [Description("10p")]
         ExtraSmall,

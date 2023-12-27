@@ -12,7 +12,7 @@ namespace Flatify
                                       .AddClass($"style-{Color.ToDescriptionString()}")
                                       .AddClass($"edge-{Edge.ToDescriptionString()}")
                                       .AddClass("disabled", Disabled)
-                                      .AddClass($"size-{Size.ToDescriptionString()}", Size != Size.Medium)
+                                      .AddClass($"size-{ElementSize.ToDescriptionString()}", ElementSize != ElementSize.Medium)
                                       .AddClass($"{Border.ToDescriptionString()}", Border != BorderType.None)
                                       .AddClass(Class)
                                       .Build();
@@ -21,7 +21,7 @@ namespace Flatify
         [Parameter] public EdgeType Edge { get; set; } = EdgeType.RoundSm;
         [Parameter] public FlatColor Color { get; set; } = FlatColor.Blue;
         [Parameter] public ButtonType Type { get; set; } = ButtonType.Button;
-        [Parameter] public Variant Variant { get; set; } = Variant.Light;
+        [Parameter] public Variant Variant { get; set; } = Variant.Outline;
         [Parameter] public RenderFragment LayerContent { get; set; }
     }
 }

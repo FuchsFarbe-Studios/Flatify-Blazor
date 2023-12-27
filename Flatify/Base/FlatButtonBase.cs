@@ -57,7 +57,7 @@ namespace Flatify
         /// <summary>
         ///     The size of this button.
         /// </summary>
-        [Parameter] public Size Size { get; set; } = Size.Medium;
+        [Parameter] public ElementSize ElementSize { get; set; } = ElementSize.Medium;
 
         [CascadingParameter(Name = "ParentDisabled")] private bool ParentDisabled { get; set; }
 

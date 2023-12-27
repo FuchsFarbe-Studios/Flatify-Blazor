@@ -21,6 +21,7 @@ namespace Flatify.Forms
         [Parameter] public InputDateType Type { get; set; } = InputDateType.Date;
         [Parameter] public string ParsingErrorMessage { get; set; } = string.Empty;
 
+        /// <inheritdoc />
         protected override void OnParametersSet()
         {
             (_typeAttributeValue, _format, var formatDescription) = Type switch
@@ -42,10 +43,10 @@ namespace Flatify.Forms
         {
             return value switch
             {
-                DateTime dateTimeValue => BindConverter.FormatValue(dateTimeValue, DateTimeLocalFormat, CultureInfo.InvariantCulture),
-                DateTimeOffset dateTimeOffsetValue => BindConverter.FormatValue(dateTimeOffsetValue, DateTimeLocalFormat, CultureInfo.InvariantCulture),
-                DateOnly dateOnlyValue => BindConverter.FormatValue(dateOnlyValue, DateFormat, CultureInfo.InvariantCulture),
-                TimeOnly timeOnlyValue => BindConverter.FormatValue(timeOnlyValue, TimeFormat, CultureInfo.InvariantCulture),
+                DateTime dateTimeValue => dateTimeValue.Date.ToString(DateFormat, CultureInfo.InvariantCulture),
+                DateTimeOffset dateTimeOffsetValue => dateTimeOffsetValue.DateTime.ToString(DateTimeLocalFormat, CultureInfo.InvariantCulture),
+                DateOnly dateOnlyValue => dateOnlyValue.ToString(MonthFormat, CultureInfo.InvariantCulture),
+                TimeOnly timeOnlyValue => timeOnlyValue.ToTimeSpan().ToString(TimeFormat, CultureInfo.InvariantCulture),
                 _ => string.Empty// Handles null for Nullable<DateTime>, etc.
             };
         }
@@ -53,7 +54,7 @@ namespace Flatify.Forms
         /// <inheritdoc />
         protected override bool TryParseValueFromString(string value, out TDateTime result, out string validationErrorMessage)
         {
-            if (BindConverter.TryConvertTo(value, CultureInfo.InvariantCulture, out result))
+            if (BindConverter.TryConvertTo<TDateTime>(value, CultureInfo.InvariantCulture, out result))
             {
                 Debug.Assert(result != null);
                 validationErrorMessage = null;

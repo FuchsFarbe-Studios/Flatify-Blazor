@@ -8,7 +8,7 @@ namespace Flatify
         protected string Classname => new CssBuilder()
                                       .AddClass("menu-items-wrapper")
                                       .AddClass("navbar")
-                                      .AddClass(Size.ToDescriptionString(), Size != Size.Medium)
+                                      .AddClass(ElementSize.ToDescriptionString(), ElementSize != ElementSize.Medium)
                                       .AddClass($"style-{Color.ToDescriptionString()}")
                                       .AddClass(Class)
                                       .Build();
@@ -41,7 +41,7 @@ namespace Flatify
         /// <summary>
         ///     Size for the navigation bar.
         /// </summary>
-        [Parameter] public Size Size { get; set; } = Size.Medium;
+        [Parameter] public ElementSize ElementSize { get; set; } = ElementSize.Medium;
 
 
         /// <summary>

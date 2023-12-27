@@ -22,12 +22,12 @@ namespace Flatify
         /// <summary>
         ///     The variation in button styling.
         /// </summary>
-        [Parameter] public Variant Variant { get; set; } = Variant.Light;
+        [Parameter] public Variant Variant { get; set; } = Variant.Outline;
 
         protected virtual string Classname => new CssBuilder()
                                               //.AddClass(Variant.ToDescriptionString())
                                               .AddClass("button")
-                                              .AddClass($"size-{Size.ToDescriptionString()}", Size != Size.Medium)
+                                              .AddClass($"size-{ElementSize.ToDescriptionString()}", ElementSize != ElementSize.Medium)
                                               .AddClass($"style-{Color.ToDescriptionString()}")
                                               .AddClass($"{Border.ToDescriptionString()}", Border != BorderType.None)
                                               .AddClass($"edge-{Edge.ToDescriptionString()}")

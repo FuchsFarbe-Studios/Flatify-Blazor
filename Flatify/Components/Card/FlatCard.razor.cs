@@ -8,7 +8,7 @@ namespace Flatify
         protected virtual string Classname => new CssBuilder()
                                               .AddClass("card")
                                               .AddClass($"edge-{Edge.ToDescriptionString()}", Edge != EdgeType.None)
-                                              .AddClass($"{CardSize.ToDescriptionString()}", CardSize != Size.Medium)
+                                              .AddClass($"{CardElementSize.ToDescriptionString()}", CardElementSize != ElementSize.Medium)
                                               .AddClass(Class)
                                               .Build();
         protected string Stylename => $"max-width: {MaxWidth}px;";
@@ -58,7 +58,7 @@ namespace Flatify
         /// <summary>
         ///     Size of the general text within the card.
         /// </summary>
-        [Parameter] public Size CardSize { get; set; } = Size.Medium;
+        [Parameter] public ElementSize CardElementSize { get; set; } = ElementSize.Medium;
 
         /// <summary> The edges of a card. </summary>
         [Parameter] public EdgeType Edge { get; set; } = EdgeType.None;

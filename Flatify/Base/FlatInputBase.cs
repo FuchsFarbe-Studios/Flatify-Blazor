@@ -85,7 +85,7 @@ namespace Flatify
         /// <summary>
         ///     Determines the size of the control on screen.
         /// </summary>
-        [Parameter] public Size Size { get; set; } = Size.Medium;
+        [Parameter] public ElementSize ElementSize { get; set; } = ElementSize.Medium;
 
         /// <summary>
         ///     Hints at the type of data that might be entered by the user while editing the input

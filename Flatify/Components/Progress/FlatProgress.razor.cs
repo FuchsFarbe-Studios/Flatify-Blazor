@@ -13,7 +13,7 @@ namespace Flatify
                                              .AddClass("loading", Type == ProgressType.Bar)
                                              .AddClass($"color-{Color.ToDescriptionString()}", !Fill && !(Color == FlatColor.Transparent || Color == FlatColor.Default || Color == FlatColor.Inherit))
                                              .AddClass($"style-{Color.ToDescriptionString()}", Fill && !(Color == FlatColor.Transparent || Color == FlatColor.Default || Color == FlatColor.Inherit))
-                                             .AddClass($"size-{Size.ToDescriptionString()}")
+                                             .AddClass($"size-{ElementSize.ToDescriptionString()}")
                                              .Build();
         /// <summary>
         ///     The type of progress bar to display.
@@ -23,7 +23,7 @@ namespace Flatify
         /// <summary>
         ///     The size of the progress element.
         /// </summary>
-        [Parameter] public Size Size { get; set; } = Size.Medium;
+        [Parameter] public ElementSize ElementSize { get; set; } = ElementSize.Medium;
 
         /// <summary>
         ///     The color of the progress element.
