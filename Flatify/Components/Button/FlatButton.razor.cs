@@ -8,13 +8,11 @@ namespace Flatify
     /// </summary>
     public partial class FlatButton
     {
-        /// <summary>
-        ///     Buttons border styling.
-        /// </summary>
-        [Parameter] public BorderType Border { get; set; } = BorderType.None;
-
         /// <summary> Buttons edge styling. </summary>
         [Parameter] public EdgeType Edge { get; set; } = EdgeType.Sharp;
+
+        /// <summary> Buttons edge styling. </summary>
+        [Parameter] public ElementWidth Width { get; set; } = ElementWidth.Medium;
 
         /// <summary> The buttons color. </summary>
         [Parameter] public FlatColor Color { get; set; } = FlatColor.Accent;
@@ -22,14 +20,17 @@ namespace Flatify
         /// <summary>
         ///     The variation in button styling.
         /// </summary>
-        [Parameter] public Variant Variant { get; set; } = Variant.Outline;
+        [Parameter] public Variant Variant { get; set; } = Variant.Default;
 
         protected virtual string Classname => new CssBuilder()
                                               //.AddClass(Variant.ToDescriptionString())
-                                              .AddClass("button")
-                                              .AddClass($"size-{ElementSize.ToDescriptionString()}", ElementSize != ElementSize.Medium)
-                                              .AddClass($"style-{Color.ToDescriptionString()}")
-                                              .AddClass($"{Border.ToDescriptionString()}", Border != BorderType.None)
+                                              .AddClass("button", string.IsNullOrEmpty(Link))
+                                              .AddClass($"{ElementSize.ToDescriptionString()}", ElementSize != ElementSize.Medium)
+                                              .AddClass($"{Variant.ToDescriptionString()}")
+                                              .AddClass($"style-{Color.ToDescriptionString()}", string.IsNullOrEmpty(Link))
+                                              .AddClass($"color-{Color.ToDescriptionString()}", !string.IsNullOrEmpty(Link))
+                                              .AddClass("link-button", !string.IsNullOrEmpty(Link))
+                                              .AddClass($"width-{Width.ToDescriptionString()}")
                                               .AddClass($"edge-{Edge.ToDescriptionString()}")
                                               .AddClass("disabled", Disabled)
                                               .AddClass(Class)

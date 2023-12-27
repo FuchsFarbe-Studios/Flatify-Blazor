@@ -6,7 +6,7 @@ namespace Flatify
     public partial class FlatTypo
     {
         protected string Classname => new CssBuilder()
-                                      .AddClass($"style-{Color.ToDescriptionString()}", Color != FlatColor.Inherit && Color != FlatColor.Default && Color != FlatColor.Transparent)
+                                      .AddClass($"color-{Color.ToDescriptionString()}", Color != FlatColor.Inherit && Color != FlatColor.Default && Color != FlatColor.Transparent)
                                       .AddClass(Size.ToDescriptionString(), Size != TextSize.Medium)
                                       .AddClass("inline", Inline)
                                       .Build();

@@ -7,14 +7,16 @@
 		</header>
 	}
 
-	<div class="@MainClassname">
-		@MainContent
+	<div class="@MainClassname" style="min-height: 100vh;">
+		<div class="@("container-xxl")">
+			@MainContent
+		</div>
 	</div>
-
 	@if (LayoutFooter != null)
 	{
 		<footer class="@FooterClassname">
 			@LayoutFooter
 		</footer>
 	}
+
 </main>

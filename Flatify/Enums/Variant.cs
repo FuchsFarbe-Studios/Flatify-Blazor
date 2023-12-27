@@ -12,22 +12,21 @@ namespace Flatify
     /// </summary>
     public enum Variant
     {
+        [Description("")] Default,
+
         /// <summary>
         ///     Will appear like a link or text-button.
         /// </summary>
-        [Description("link-button")]
-        Text,
+        [Description("link-button")] Text,
 
         /// <summary>
         ///     Creates a filled button based on accent color.
         /// </summary>
-        [Description("bordered")]
-        Border,
+        [Description("bordered")] Border,
 
         /// <summary>
         ///     Generates a lightly outlined container or button.
         /// </summary>
-        [Description("outlined")]
-        Outline
+        [Description("outlined")] Outline
     }
 }

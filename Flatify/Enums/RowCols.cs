@@ -9,6 +9,9 @@ namespace Flatify
 {
     public enum RowCols
     {
+        [Description("")]
+        Default,
+
         [Description("row-cols-1")]
         Cols1,
 

@@ -10,14 +10,14 @@ namespace Flatify
     {
         protected string FooterClassname => new CssBuilder()
                                             .AddClass("menu-items-wrapper")
-                                            .AddClass("navbar")
-                                            .AddClass("sticky-bottom")
-                                            .AddClass($"style-{Color.ToDescriptionString()}-light", Color != FlatColor.Inherit && Color != FlatColor.Default && Color != FlatColor.Transparent)
+                                            //.AddClass("sticky-bottom")
+                                            .AddClass($"style-{FlatColor.Dark.ToDescriptionString()}")
+                                            .AddClass("site-footer")
                                             .Build();
         protected string MainClassname => new CssBuilder()
-                                          .AddClass($"container-{MaxWidth.ToDescriptionString()}")
+                                          //.AddClass($"container-{MaxWidth.ToDescriptionString()}")
                                           .AddClass("page-wrap")
-                                          // .AddClass($"style-{Color.ToDescriptionString()}-light", Color != FlatColor.Inherit && Color != FlatColor.Default && Color != FlatColor.Transparent)
+                                          .AddClass($"style-{Color.ToDescriptionString()}", Color != FlatColor.Inherit && Color != FlatColor.Default && Color != FlatColor.Transparent)
                                           .Build();
 
         /// <summary>
@@ -48,6 +48,6 @@ namespace Flatify
         /// <summary>
         ///     The container style and coloring.
         /// </summary>
-        [Parameter] public FlatColor Color { get; set; } = FlatColor.Inherit;
+        [Parameter] public FlatColor Color { get; set; } = FlatColor.Default;
     }
 }
