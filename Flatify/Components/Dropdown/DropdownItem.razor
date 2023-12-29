@@ -1,0 +1,15 @@
+@inherits FlatComponentBase
+@namespace Flatify
+
+@code {
+	[CascadingParameter] public FlatDropdown Parent { get; set; }
+	[Parameter] public string Title { get; set; }
+	[Parameter] public string Link { get; set; }
+
+	/// <inheritdoc />
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+		Parent?.AddItem(this);
+	}
+}
