@@ -3,10 +3,10 @@
 @inherits FlatFormComponentBase<string>
 
 <div class="@ContainerClassname">
-	<input class="@InputClassname" @bind="@CurrentValueAsString" id="@FieldIdentifier.FieldName" name="@FieldIdentifier.FieldName" required="@Required" type="@InputType.ToDescriptionString()" placeholder="@floatingPlaceholder" disabled="@Disabled" />
+	<input class="@InputClassname" @bind="@CurrentValueAsString" @onblur="@OnBlur" id="@FieldIdentifier.FieldName" name="@FieldIdentifier.FieldName" required="@Required" type="@InputType.ToDescriptionString()" placeholder="@floatingPlaceholder" disabled="@Disabled" />
 	<label class="@LabelClassname" for="@FieldIdentifier.FieldName">@Label</label>
+	@if (!string.IsNullOrEmpty(HelpText))
+	{
+		<p class="help-text size-sm">@HelpText</p>
+	}
 </div>
-@if (!string.IsNullOrEmpty(HelpText))
-{
-	<p class="help-text size-sm">@HelpText</p>
-}

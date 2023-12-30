@@ -10,7 +10,7 @@ namespace Flatify.Forms
                                                         .AddClass("input-wrapper")
                                                         .AddClass("is-textarea")
                                                         .AddClass("floating-label")
-                                                        .AddClass("w-100p")
+                                                        .AddClass("width-100p")
                                                         .Build();
 
         [Parameter] public int Lines { get; set; } = 1;

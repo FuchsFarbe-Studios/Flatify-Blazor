@@ -7,11 +7,11 @@
 		{
 			case LabelDirection.Left or LabelDirection.Default:
 				@Label
-				<input type="@GetInputType(Value)" @bind="@CurrentValue" role="switch" id="@FieldIdentifier.FieldName" required="@Required" disabled="@Disabled" placeholder="@floatingPlaceholder" name="@FieldIdentifier.FieldName" />
+				<input type="@GetInputType(Value)" @bind="@CurrentValue" @onblur="@OnBlur" role="switch" id="@FieldIdentifier.FieldName" required="@Required" disabled="@Disabled" placeholder="@floatingPlaceholder" name="@FieldIdentifier.FieldName" />
 				<span class="check"></span>
 				break;
 			case LabelDirection.Right:
-				<input type="@GetInputType(Value)" @bind="@CurrentValue" role="switch" id="@FieldIdentifier.FieldName" required="@Required" disabled="@Disabled" placeholder="@floatingPlaceholder" name="@FieldIdentifier.FieldName" />
+				<input type="@GetInputType(Value)" @bind="@CurrentValue" @onblur="@OnBlur" role="switch" id="@FieldIdentifier.FieldName" required="@Required" disabled="@Disabled" placeholder="@floatingPlaceholder" name="@FieldIdentifier.FieldName" />
 				<span class="check"></span>
 				@Label
 				break;

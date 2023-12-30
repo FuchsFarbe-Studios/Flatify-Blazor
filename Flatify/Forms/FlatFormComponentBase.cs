@@ -1,6 +1,7 @@
 using Flatify.Utilities;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Web;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Globalization;
@@ -27,6 +28,8 @@ namespace Flatify.Forms
                                                    .AddClass($"color-{Color.ToDescriptionString()}", Color != FlatColor.Default && Color != FlatColor.Transparent && Color != FlatColor.Inherit)
                                                    .Build();
         protected virtual string FieldClass => EditContext.FieldCssClass(FieldIdentifier);
+
+        [Parameter] public EventCallback<FocusEventArgs> OnBlur { get; set; }
 
         /// <summary>
         ///     Gets or sets the label of the input.

@@ -3,7 +3,7 @@
 @typeparam TValue
 
 <div class="@ContainerClassname">
-	<select name="@FieldIdentifier.FieldName" id="@FieldIdentifier.FieldName" class="@InputClassname" @bind="@CurrentValue" placeholder="@floatingPlaceholder">
+	<select name="@FieldIdentifier.FieldName" @onblur="@OnBlur" id="@FieldIdentifier.FieldName" class="@InputClassname" @bind="@CurrentValue" placeholder="@floatingPlaceholder">
 		<CascadingValue Value="this" IsFixed="true">
 			@ChildContent
 		</CascadingValue>
