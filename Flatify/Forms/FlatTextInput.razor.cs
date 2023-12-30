@@ -15,5 +15,11 @@ namespace Flatify.Forms
         ///     Maximum number of characters that the input will accept
         /// </summary>
         [Parameter] public int MinLength { get; set; } = 0;
+
+        /// <inheritdoc />
+        public override void FlatStateHasChanged()
+        {
+            StateHasChanged();
+        }
     }
 }

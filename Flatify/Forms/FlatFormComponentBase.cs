@@ -8,8 +8,9 @@ using System.Globalization;
 
 namespace Flatify.Forms
 {
-    public class FlatFormComponentBase<TValue> : InputBase<TValue>
+    public class FlatFormComponentBase<TValue> : InputBase<TValue>, IFlatStateHasChanged
     {
+        private bool _disabled;
         protected string floatingPlaceholder => Floating
                                                     ? Placeholder ?? Label
                                                     : Placeholder;
@@ -54,7 +55,18 @@ namespace Flatify.Forms
         /// <summary>
         ///     Determines if this input is disabled.
         /// </summary>
-        [Parameter] public bool Disabled { get; set; }
+        [Parameter] public bool Disabled
+        {
+            get => _disabled;
+            set
+            {
+                if (_disabled != value)
+                {
+                    _disabled = value;
+                    StateHasChanged();
+                }
+            }
+        }
 
         /// <summary>
         ///     Floating inputs float labels above the input.
@@ -80,6 +92,12 @@ namespace Flatify.Forms
         ///     The size of the input element.
         /// </summary>
         [Parameter] public ElementSize Size { get; set; } = ElementSize.Medium;
+
+        /// <inheritdoc />
+        public virtual void FlatStateHasChanged()
+        {
+            StateHasChanged();
+        }
 
         /// <summary>
         ///     Gets the input type based on the the value type.

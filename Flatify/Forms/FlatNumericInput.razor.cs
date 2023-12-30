@@ -28,5 +28,11 @@ namespace Flatify.Forms
 
         /// <summary> Incrementing step. </summary>
         [Parameter] public TData Step { get; set; }
+
+        /// <inheritdoc />
+        public override void FlatStateHasChanged()
+        {
+            StateHasChanged();
+        }
     }
 }

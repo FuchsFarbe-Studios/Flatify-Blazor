@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Flatify.Forms
 {
     public class FlatBoolInputBase : FlatFormComponentBase<bool>
@@ -10,15 +12,9 @@ namespace Flatify.Forms
         }
 
         /// <inheritdoc />
-        protected override bool TryParseValueFromString(string value, out bool result, out string validationErrorMessage)
+        protected override bool TryParseValueFromString(string? value, out bool result, [NotNullWhen(false)] out string? validationErrorMessage)
         {
-            if (bool.TryParse(value, out result))
-            {
-                validationErrorMessage = null;
-                return true;
-            }
-            validationErrorMessage = $"The {FieldIdentifier.FieldName} field is not a valid boolean value.";
-            return false;
+            throw new NotSupportedException($"This component does not parse string inputs. Bind to the '{nameof(CurrentValue)}' property, not '{nameof(CurrentValueAsString)}'.");
         }
     }
 }
