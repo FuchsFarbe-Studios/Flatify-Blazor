@@ -9,7 +9,7 @@
 			{
 				@foreach (var tab in Items)
 				{
-					<button id="@tab.TabID" role="tab" class="@tab.ButtonClassName" @onclick="@(e => ActivateTab(tab))">
+					<button id="@($"{tab.TabID}-button")" role="tab" class="@tab.ButtonClassName" @onclick="@(e => ActivateTab(tab))" aria-controls="@tab.TabID" data-tab-target="@tab.TabID">
 						@if (tab.TabButtonContent != null)
 						{
 							@if (tab.TabButtonText != null)
@@ -27,7 +27,10 @@
 			}
 		</div>
 		<div class="tabs-content">
-			@ChildContent
+			@if (Items.Any())
+			{
+				@ChildContent
+			}
 		</div>
 	</div>
 </CascadingValue>

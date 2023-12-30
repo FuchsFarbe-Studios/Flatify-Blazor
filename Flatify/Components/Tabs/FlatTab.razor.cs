@@ -7,7 +7,7 @@ namespace Flatify
     {
         protected string TabContentClassName => new CssBuilder()
                                                 .AddClass("tab-panel")
-                                                .AddClass("show", Tabs.SelectedContainer.TabID == TabID)
+                                                .AddClass("show", Tabs.SelectedContainer == this)
                                                 .AddClass(Class)
                                                 .Build();
         public string ButtonClassName => new CssBuilder()
