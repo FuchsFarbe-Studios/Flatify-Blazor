@@ -44,7 +44,6 @@
         <AdditionalFiles Include="Forms\FlatNumericInput.razor"/>
         <AdditionalFiles Include="Forms\FlatOption.razor"/>
         <AdditionalFiles Include="Forms\FlatSelectInput.razor"/>
-        <AdditionalFiles Include="Forms\FlatSwitchInput.razor"/>
         <AdditionalFiles Include="Forms\FlatTextArea.razor"/>
         <AdditionalFiles Include="Forms\FlatTextInput.razor"/>
     </ItemGroup>
