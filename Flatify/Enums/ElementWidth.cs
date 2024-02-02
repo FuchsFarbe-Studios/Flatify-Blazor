@@ -9,6 +9,9 @@ namespace Flatify
 {
     public enum ElementWidth
     {
+        [Description("")]
+        Default,
+
         [Description("10p")]
         ExtraSmall,
 

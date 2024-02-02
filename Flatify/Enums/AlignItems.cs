@@ -7,23 +7,6 @@ using System.ComponentModel;
 
 namespace Flatify
 {
-    /// <summary>
-    ///     Used in determining the display for progression on the web application.
-    /// </summary>
-    public enum ProgressType
-    {
-        [Description("loading")]
-        Default,
-
-        [Description("loading")]
-        Dots,
-
-        [Description("spinner")]
-        Spinner,
-
-        [Description("progress-bar")]
-        Bar
-    }
 
     /// <summary>
     ///     Flexbox align-items property.
