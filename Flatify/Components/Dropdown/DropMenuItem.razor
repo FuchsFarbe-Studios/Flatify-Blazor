@@ -1,0 +1,104 @@
+@namespace Flatify.Components
+@inherits FlatComponentBase
+
+<li @attributes="@UserAttributes" @ontouchstart="@OnTouchStartHandler" @ontouchmove="@OnTouchMoveHandler" @onclick="@OnClickHandler" @ontouchend="@OnTouchHandler">
+	@ChildContent
+</li>
+
+@code {
+	[Inject] private NavigationManager Nav { get; set; }
+	[CascadingParameter(Name = "DropMenu")] public FlatDropMenu DropMenu { get; set; }
+
+	[Parameter] public RenderFragment ChildContent { get; set; }
+	[Parameter] public bool AutoClose { get; set; } = true;
+	[Parameter] public bool Disabled { get; set; }
+	[Parameter] public string Link { get; set; }
+	[Parameter] public string Target { get; set; }
+	[Parameter] public bool ForceLoad { get; set; }
+
+	[Parameter] public EventCallback<EventArgs> OnAction { get; set; }
+	[Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
+	[Parameter] public EventCallback<TouchEventArgs> OnTouch { get; set; }
+
+	/// <inheritdoc />
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+	}
+
+	protected async Task OnClickHandler(MouseEventArgs e)
+	{
+		if (Disabled)
+			return;
+
+		if (AutoClose)
+			DropMenu.CloseMenu();
+
+		if (Link != null)
+		{
+			if (string.IsNullOrWhiteSpace(Target))
+				Nav.NavigateTo(Link, ForceLoad);
+		}
+		else
+		{
+			if (OnClick.HasDelegate)
+				await OnClick.InvokeAsync(e);
+			else
+			{
+				await OnActionHandlerAsync(e);
+			}
+
+		}
+	}
+
+	private bool _isTouchMoved;
+	private void OnTouchStartHandler()
+	{
+		_isTouchMoved = false;
+	}
+	private void OnTouchMoveHandler()
+	{
+		_isTouchMoved = true;
+	}
+	protected internal async Task OnTouchHandler(TouchEventArgs ev)
+	{
+		if (Disabled || _isTouchMoved)
+			return;
+
+		if (AutoClose)
+			DropMenu.CloseMenu();
+
+		if (Link != null)
+		{
+			if (string.IsNullOrWhiteSpace(Target))
+				Nav.NavigateTo(Link, ForceLoad);
+		}
+		else
+		{
+			if (OnTouch.HasDelegate)
+				await OnTouch.InvokeAsync(ev);
+			else
+				await OnActionHandlerAsync(ev);
+		}
+	}
+
+	private DateTime _lastCall = DateTime.MinValue;
+	private SemaphoreSlim _semaphoreLastCall = new SemaphoreSlim(1);
+	protected internal async Task OnActionHandlerAsync(EventArgs ev)
+	{
+		var now = DateTime.UtcNow;
+
+		if (!OnAction.HasDelegate)
+			return;
+
+		await _semaphoreLastCall.WaitAsync();
+		var needCall = now - _lastCall > TimeSpan.FromMilliseconds(100);
+		if (needCall)
+			_lastCall = now;
+		_semaphoreLastCall.Release();
+
+		if (needCall)
+			await OnAction.InvokeAsync(ev);
+
+	}
+}
