@@ -1,16 +1,16 @@
 @namespace Flatify.Components
 @inherits FlatComponentBase
 
-<div class="dropdown-wrapper" @onmouseover="@MouseEnter" @onmouseout="@MouseLeave" @oncontextmenu:preventDefault="@(ActivationEvent == MouseEvent.RightClick ? true : false)">
+<div class="@Classname" @onmouseover="@MouseEnter" @onmouseout="@MouseLeave" @oncontextmenu:preventDefault="@(ActivationEvent == MouseEvent.RightClick ? true : false)">
 
 	<!-- a button to toggle show/hide of dropdown -->
-	<FlatButton Disabled="@Disabled" OnClick="@ToggleMenu" @ontouchend="@(ActivationEvent == MouseEvent.RightClick ? ToggleMenuTouch : null)" @oncontextmenu="@(ActivationEvent == MouseEvent.RightClick ? ToggleMenu : null)">
+	<FlatButton id="@Id" aria-expanded="false" Class="@ButtonClassname" Disabled="@Disabled" OnClick="@ToggleMenu" @ontouchend="@(ActivationEvent == MouseEvent.RightClick ? ToggleMenuTouch : null)" @oncontextmenu="@(ActivationEvent == MouseEvent.RightClick ? ToggleMenu : null)">
 		Dropdown Menu
 	</FlatButton>
 
 	<!-- dropdown: in this case a menu -->
-	<ul class="dropdown menu-items-wrapper" aria-labelledby="my-dropdown-toggle">
-		<CascadingValue Value="this" Name="DropMenu">
+	<ul class="@ActivatorClassname" aria-labelledby="@Id" @ontouchend:stopPropagation>
+		<CascadingValue Value="this" Name="Drop Menu">
 			@if (MenuItems != null)
 			{
 				@MenuItems
@@ -22,3 +22,7 @@
 		</li>
 	</ul>
 </div>
+
+@code{
+	[Parameter] public string Id { get; set; } = Guid.NewGuid().ToString();
+}

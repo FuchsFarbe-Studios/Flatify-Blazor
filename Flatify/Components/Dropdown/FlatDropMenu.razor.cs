@@ -8,11 +8,19 @@ namespace Flatify.Components
     {
         private bool _isMouseOver = false;
         private bool _isOpen;
-        protected string Classname => new CssBuilder("mud-menu")
+        protected string Classname => new CssBuilder("dropdown-wrapper")
                                       .AddClass(Class)
                                       .Build();
-        protected string ActivatorClassname => new CssBuilder("mud-menu-activator")
-                                               .AddClass("mud-disabled", Disabled)
+        protected string ButtonClassname => new CssBuilder()
+                                            .AddClass("button")
+                                            .AddClass("dropdown-toggle")
+                                            .AddClass("arrow-button")
+                                            .AddClass("arrow-flip", _isOpen)
+                                            .AddClass("active", _isOpen)
+                                            .Build();
+        protected string ActivatorClassname => new CssBuilder("dropdown")
+                                               .AddClass("menu-items-wrapper")
+                                               .AddClass("show", _isOpen)
                                                .Build();
 
         /// <summary>

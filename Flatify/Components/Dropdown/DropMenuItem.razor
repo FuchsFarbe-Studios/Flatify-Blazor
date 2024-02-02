@@ -1,11 +1,17 @@
 @namespace Flatify.Components
+@using Flatify.Utilities
 @inherits FlatComponentBase
 
-<li @attributes="@UserAttributes" @ontouchstart="@OnTouchStartHandler" @ontouchmove="@OnTouchMoveHandler" @onclick="@OnClickHandler" @ontouchend="@OnTouchHandler">
-	@ChildContent
+<li @attributes="@UserAttributes" class="@ListClassname" @ontouchstart="@OnTouchStartHandler" @ontouchmove="@OnTouchMoveHandler" @onclick="@OnClickHandler" @ontouchend="@OnTouchHandler">
+	<a>@ChildContent</a>
 </li>
 
 @code {
+	protected string ListClassname => new CssBuilder()
+	                                  .AddClass("menu-item")
+	                                  .AddClass(Class)
+	                                  .Build();
+
 	[Inject] private NavigationManager Nav { get; set; }
 	[CascadingParameter(Name = "DropMenu")] public FlatDropMenu DropMenu { get; set; }
 
