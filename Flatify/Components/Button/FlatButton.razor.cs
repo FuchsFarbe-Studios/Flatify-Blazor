@@ -12,7 +12,7 @@ namespace Flatify
         [Parameter] public EdgeType Edge { get; set; } = EdgeType.Sharp;
 
         /// <summary> Buttons edge styling. </summary>
-        [Parameter] public ElementWidth Width { get; set; } = ElementWidth.Medium;
+        [Parameter] public ElementWidth Width { get; set; } = ElementWidth.Default;
 
         /// <summary> The buttons color. </summary>
         [Parameter] public FlatColor Color { get; set; } = FlatColor.Accent;
@@ -30,8 +30,8 @@ namespace Flatify
                                               .AddClass($"style-{Color.ToDescriptionString()}", string.IsNullOrEmpty(Link))
                                               .AddClass($"color-{Color.ToDescriptionString()}", !string.IsNullOrEmpty(Link))
                                               .AddClass("link-button", !string.IsNullOrEmpty(Link))
-                                              .AddClass($"width-{Width.ToDescriptionString()}")
-                                              .AddClass($"edge-{Edge.ToDescriptionString()}")
+                                              .AddClass($"width-{Width.ToDescriptionString()}", Width != ElementWidth.Default)
+                                              .AddClass($"edge-{Edge.ToDescriptionString()}", Edge != EdgeType.None)
                                               .AddClass("disabled", Disabled)
                                               .AddClass(Class)
                                               .Build();

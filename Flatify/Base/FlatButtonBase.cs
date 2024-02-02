@@ -28,6 +28,9 @@ namespace Flatify
         /// <summary> Button click event. </summary>
         [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
 
+        /// <summary> Button blur event. </summary>
+        [Parameter] public EventCallback<FocusEventArgs> OnBlur { get; set; }
+
         /// <summary>
         ///     If true, the button will be disabled.
         /// </summary>
@@ -92,6 +95,14 @@ namespace Flatify
                 return;
 
             await OnClick.InvokeAsync(ev);
+        }
+
+        protected virtual async Task OnBlurHandler(FocusEventArgs ev)
+        {
+            if (GetDisabledState())
+                return;
+
+            await OnBlur.InvokeAsync(ev);
         }
 
         private void SetDefaults()
