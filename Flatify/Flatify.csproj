@@ -37,6 +37,8 @@
         <UpToDateCheckInput Remove="Forms\Input\FlatSwitch.razor"/>
         <UpToDateCheckInput Remove="Forms\Input\FlatTextField.razor"/>
         <UpToDateCheckInput Remove="Forms\Input\FlatYesNoField.razor"/>
+        <UpToDateCheckInput Remove="Components\Drawer\FlatDrawer.razor"/>
+        <UpToDateCheckInput Remove="Components\Drawer\FlatDrawerContainer.razor"/>
     </ItemGroup>
 
     <ItemGroup>
