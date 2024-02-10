@@ -9,6 +9,7 @@ namespace Flatify
                                       .AddClass($"color-{Color.ToDescriptionString()}", Color != FlatColor.Inherit && Color != FlatColor.Default && Color != FlatColor.Transparent)
                                       .AddClass(Size.ToDescriptionString(), Size != TextSize.Medium)
                                       .AddClass("inline", Inline)
+                                      .AddClass(Class)
                                       .Build();
         [Parameter] public RenderFragment ChildContent { get; set; }
 
