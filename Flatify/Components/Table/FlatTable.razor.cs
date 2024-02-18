@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace Flatify
 {
+    /// <summary>
+    ///     Used to represent tabular data.
+    /// </summary>
     public partial class FlatTable
     {
         protected string Classname => new CssBuilder()
