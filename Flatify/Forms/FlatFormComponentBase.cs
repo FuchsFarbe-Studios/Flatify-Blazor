@@ -17,7 +17,7 @@ namespace Flatify.Forms
 
         protected virtual string ContainerClassname => new CssBuilder()
                                                        .AddClass("input-wrapper")
-                                                       .AddClass("floating-label")
+                                                       .AddClass("floating-label", Floating)
                                                        .AddClass($"{Size.ToDescriptionString()}")
                                                        .Build();
         protected virtual string InputClassname => new CssBuilder()

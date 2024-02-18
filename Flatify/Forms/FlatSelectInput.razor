@@ -3,12 +3,19 @@
 @typeparam TValue
 
 <div class="@ContainerClassname">
+	@if (!Floating)
+	{
+		<label class="@LabelClassname" for="@FieldIdentifier.FieldName">@Label</label>
+	}
 	<select name="@FieldIdentifier.FieldName" @onblur="@OnBlur" id="@FieldIdentifier.FieldName" class="@InputClassname" @bind="@CurrentValue" placeholder="@floatingPlaceholder">
 		<CascadingValue Value="this" IsFixed="true">
 			@ChildContent
 		</CascadingValue>
 	</select>
-	<label class="@LabelClassname" for="@FieldIdentifier.FieldName">@Label</label>
+	@if (Floating)
+	{
+		<label class="@LabelClassname" for="@FieldIdentifier.FieldName">@Label</label>
+	}
 </div>
 @if (!string.IsNullOrEmpty(HelpText))
 {
