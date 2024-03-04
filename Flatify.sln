@@ -1,6 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flatify", "Flatify\Flatify.csproj", "{BE46FE0B-2364-4A32-80E6-3D7470CF8E38}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34518.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flatify", "Flatify\Flatify.csproj", "{BE46FE0B-2364-4A32-80E6-3D7470CF8E38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatifyApp", "FlatifyApp\FlatifyApp\FlatifyApp.csproj", "{6CE121C4-7B8E-4F11-9082-BD11935825E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatifyApp.Client", "FlatifyApp\FlatifyApp.Client\FlatifyApp.Client.csproj", "{04F996C3-D980-48A9-9564-0C75997157A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +19,19 @@ Global
 		{BE46FE0B-2364-4A32-80E6-3D7470CF8E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE46FE0B-2364-4A32-80E6-3D7470CF8E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE46FE0B-2364-4A32-80E6-3D7470CF8E38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CE121C4-7B8E-4F11-9082-BD11935825E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CE121C4-7B8E-4F11-9082-BD11935825E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CE121C4-7B8E-4F11-9082-BD11935825E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CE121C4-7B8E-4F11-9082-BD11935825E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04F996C3-D980-48A9-9564-0C75997157A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04F996C3-D980-48A9-9564-0C75997157A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04F996C3-D980-48A9-9564-0C75997157A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04F996C3-D980-48A9-9564-0C75997157A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D843925-9410-453B-A93B-6E4B1F088C2C}
 	EndGlobalSection
 EndGlobal

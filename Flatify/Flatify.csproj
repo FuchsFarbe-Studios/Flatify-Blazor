@@ -16,39 +16,43 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <SupportedPlatform Include="browser"/>
+        <SupportedPlatform Include="browser" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.2"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.2" />
     </ItemGroup>
 
     <ItemGroup>
-        <UpToDateCheckInput Remove="Components\Table\FlatTable.razor"/>
-        <UpToDateCheckInput Remove="Tabs\FlatTab.razor"/>
-        <UpToDateCheckInput Remove="Tabs\FlatTabs.razor"/>
-        <UpToDateCheckInput Remove="Forms\FlatForm.razor"/>
-        <UpToDateCheckInput Remove="Forms\Input\FlatAdornment.razor"/>
-        <UpToDateCheckInput Remove="Forms\Input\FlatBoolField.razor"/>
-        <UpToDateCheckInput Remove="Forms\Input\FlatDateField.razor"/>
-        <UpToDateCheckInput Remove="Forms\Input\FlatField.razor"/>
-        <UpToDateCheckInput Remove="Forms\Input\FlatNumericField.razor"/>
-        <UpToDateCheckInput Remove="Forms\Input\FlatOption.razor"/>
-        <UpToDateCheckInput Remove="Forms\Input\FlatSelectField.razor"/>
-        <UpToDateCheckInput Remove="Forms\Input\FlatSwitch.razor"/>
-        <UpToDateCheckInput Remove="Forms\Input\FlatTextField.razor"/>
-        <UpToDateCheckInput Remove="Forms\Input\FlatYesNoField.razor"/>
-        <UpToDateCheckInput Remove="Components\Drawer\FlatDrawer.razor"/>
-        <UpToDateCheckInput Remove="Components\Drawer\FlatDrawerContainer.razor"/>
+        <UpToDateCheckInput Remove="Components\Table\FlatTable.razor" />
+        <UpToDateCheckInput Remove="Tabs\FlatTab.razor" />
+        <UpToDateCheckInput Remove="Tabs\FlatTabs.razor" />
+        <UpToDateCheckInput Remove="Forms\FlatForm.razor" />
+        <UpToDateCheckInput Remove="Forms\Input\FlatAdornment.razor" />
+        <UpToDateCheckInput Remove="Forms\Input\FlatBoolField.razor" />
+        <UpToDateCheckInput Remove="Forms\Input\FlatDateField.razor" />
+        <UpToDateCheckInput Remove="Forms\Input\FlatField.razor" />
+        <UpToDateCheckInput Remove="Forms\Input\FlatNumericField.razor" />
+        <UpToDateCheckInput Remove="Forms\Input\FlatOption.razor" />
+        <UpToDateCheckInput Remove="Forms\Input\FlatSelectField.razor" />
+        <UpToDateCheckInput Remove="Forms\Input\FlatSwitch.razor" />
+        <UpToDateCheckInput Remove="Forms\Input\FlatTextField.razor" />
+        <UpToDateCheckInput Remove="Forms\Input\FlatYesNoField.razor" />
+        <UpToDateCheckInput Remove="Components\Drawer\FlatDrawer.razor" />
+        <UpToDateCheckInput Remove="Components\Drawer\FlatDrawerContainer.razor" />
     </ItemGroup>
 
     <ItemGroup>
-        <AdditionalFiles Include="Forms\FlatDateInput.razor"/>
-        <AdditionalFiles Include="Forms\FlatNumericInput.razor"/>
-        <AdditionalFiles Include="Forms\FlatOption.razor"/>
-        <AdditionalFiles Include="Forms\FlatSelectInput.razor"/>
-        <AdditionalFiles Include="Forms\FlatTextArea.razor"/>
-        <AdditionalFiles Include="Forms\FlatTextInput.razor"/>
+        <AdditionalFiles Include="Forms\FlatDateInput.razor" />
+        <AdditionalFiles Include="Forms\FlatNumericInput.razor" />
+        <AdditionalFiles Include="Forms\FlatOption.razor" />
+        <AdditionalFiles Include="Forms\FlatSelectInput.razor" />
+        <AdditionalFiles Include="Forms\FlatTextArea.razor" />
+        <AdditionalFiles Include="Forms\FlatTextInput.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="..\FlatifyApp\FlatifyApp\Components\Pages\Weather.razor.cs" Link="Weather.razor.cs" />
     </ItemGroup>
 
     <ItemGroup>
